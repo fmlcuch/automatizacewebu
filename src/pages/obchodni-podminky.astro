@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { siteConfig } from "../data/site";
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Všeobecné obchodní podmínky",
+  url: `${siteConfig.siteUrl}/obchodni-podminky`
+};
+---
+
+<Layout
+  title="Všeobecné obchodní podmínky | automatizacewebu.cz"
+  description="Všeobecné obchodní podmínky pro poskytování služeb automatizace, úpravy obsahu a integrací na webu automatizacewebu.cz."
+  canonical="/obchodni-podminky"
+  schema={pageSchema}
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell max-w-4xl">
+      <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Právní informace</p>
+      <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+        Všeobecné obchodní podmínky
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        Tyto všeobecné obchodní podmínky upravují práva a povinnosti mezi provozovatelem webu 
+        automatizacewebu.cz a vámi jako zákazníkem při objednávání našich služeb.
+      </p>
+      <p class="mt-4 text-sm text-slate-500">Poslední aktualizace: 18. 5. 2026</p>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell max-w-4xl space-y-12">
+      
+      <!-- 1. Poskytovatel -->
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Poskytovatel" title="Provozovatel a smluvní strana" />
+        <div class="mt-6 space-y-2 text-base leading-8 text-slate-600">
+          <p>Tyto obchodní podmínky platí pro nákup služeb prostřednictvím webu automatizacewebu.cz. Provozovatelem je:</p>
+          <p><strong class="text-slate-900">{siteConfig.ownerName}</strong></p>
+          <p>IČO: {siteConfig.ico}</p>
+          <p>Sídlo: {siteConfig.city}</p>
+          <p>
+            E-mail:
+            <a href={`mailto:${siteConfig.email}`} class="font-semibold text-brand hover:text-brand-dark">
+              {siteConfig.email}
+            </a>
+          </p>
+          <p class="text-sm text-slate-500 mt-4">Fyzická osoba zapsaná v živnostenském rejstříku. Naše služby jsou poskytovány v režimu B2B pro podnikatele a firmy.</p>
+        </div>
+      </section>
+
+      <!-- 2. Vznik smlouvy -->
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Proces spolupráce" title="Objednávka a uzavření smlouvy" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700 prose-li:text-slate-700">
+          <p>
+            Veškerá prezentace služeb na webu je informativního charakteru. Smluvní vztah mezi poskytovatelem 
+            a zákazníkem vzniká následujícím postupem:
+          </p>
+          <ul>
+            <li>Zákazník odešle nezávaznou poptávku/objednávku prostřednictvím formuláře na webu.</li>
+            <li>Poskytovatel zákazníka kontaktuje e-mailem, upřesní rozsah práce, termín a zašle konkrétní cenovou nabídku.</li>
+            <li><strong>Smlouva je uzavřena v momentě</strong>, kdy zákazník e-mailem potvrdí souhlas s touto nabídkou (např. textem „Závazně objednávám“) nebo uhradí vystavenou zálohovou fakturu.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3. Cena a platby -->
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Financování" title="Ceny a platební podmínky" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700 prose-li:text-slate-700">
+          <p>
+            Ceny služeb jsou uvedeny na webových stránkách jako fixní za balíček, nebo jako jednotkové (např. za zpracovaný obrázek či stránku). Poskytovatel není plátcem DPH, uvedená cena je konečná.
+          </p>
+          <ul>
+            <li><strong>Jednorázové balíčky a služby menšího rozsahu:</strong> Práce začíná po 100% úhradě zálohové faktury zákazníkem, není-li e-mailem dohodnuto jinak.</li>
+            <li><strong>Služby s měsíčním předplatným (např. AI analytik):</strong> Služba je hrazena formou pravidelného měsíčního paušálu. Předplatné je bez závazků a zákazník ho může kdykoliv e-mailem zrušit pro následující zúčtovací období.</li>
+            <li>Faktury jsou zasílány elektronicky s běžnou splatností 14 dnů. V případě prodlení s úhradou má poskytovatel právo pozastavit práce nebo ihned přerušit provoz běžících integrací.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. Součinnost klienta -->
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Realizace" title="Součinnost zákazníka a předání práce" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700 prose-li:text-slate-700">
+          <p>
+            Pro úspěšné a rychlé dokončení automatizace či úpravy obsahu je nezbytná spolupráce ze strany zákazníka.
+          </p>
+          <ul>
+            <li>Zákazník se zavazuje vytvořit poskytovateli samostatný dočasný přístup do administrace WordPressu s odpovídajícími právy (Administrátor/Editor) a včas předat případné další podklady.</li>
+            <li>Zákazník je povinen před zahájením prací provést **kompletní zálohu svého webu a databáze**. Poskytovatel neručí za ztrátu dat způsobenou absencí zálohování na straně zákazníka.</li>
+            <li>Práce se považuje za dokončenou a předanou v momentě, kdy poskytovatel e-mailem oznámí dokončení nastavení a zákazník má možnost výsledek otestovat. Případné drobné nedostatky, které nebrání základnímu provozu, nejsou důvodem k odmítnutí převzetí.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5. Odpovědnost a rizika -->
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Bezpečnost a rizika" title="Omezení odpovědnosti a třetí strany" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700 prose-li:text-slate-700">
+          <p>
+            Vzhledem k povaze digitálních služeb, integrací a využívání umělé inteligence platí následující specifická pravidla pro omezení rizik:
+          </p>
+          <ul>
+            <li><strong>Změny systémů třetích stran:</strong> Poskytovatel neodpovídá za nefunkčnost integrací či skriptů, která byla způsobena budoucí změnou v kódu WordPressu, aktualizací pluginů zákazníka, nebo změnou aplikačního rozhraní (API) externích platforem a poskytovatelů umělé inteligence.</li>
+            <li><strong>Chování umělé inteligence:</strong> Výstupy generované textovými či vizuálními modely umělé inteligence (např. ALT texty, metadata, opravené texty) jsou výsledkem algoritmického zpracování. Poskytovatel neručí za stoprocentní faktickou správnost těchto textů a zákazník má možnost si je před plošným nasazením zkontrolovat.</li>
+            <li><strong>Omezení náhrady škody:</strong> Odpovědnost poskytovatele za jakoukoliv případnou škodu či ušlý zisk vzniklý zákazníkovi v souvislosti s provozem nebo výpadkem poskytnutých služeb je omezena maximálně do výše částky, kterou zákazník za danou službu poskytovateli skutečně zaplatil.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. Závěr -->
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Platnost" title="Závěrečná ustanovení" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700">
+          <p>
+            Právní vztahy mezi poskytovatelem a zákazníkem se řídí právním řádem České republiky, zejména zákonem 
+            č. 89/2012 Sb., občanský zákoník, v účinném znění. Protože se jedná o vztah dvou podnikatelských subjektů, 
+            na tyto služby se nevztahují spotřebitelská ustanovení o odstoupení od smlouvy bez udání důvodu do 14 dnů.
+          </p>
+          <p>
+            Poskytovatel si vyhrazuje právo tyto obchodní podmínky v přiměřeném rozsahu změnit. Nové podmínky 
+            budou zveřejněny na této stránce a pro stávající zákazníky platí podmínky platné v momentě uzavření objednávky.
+          </p>
+          <p class="mt-6">
+            Máte-li k obchodním podmínkám jakýkoliv dotaz, kontaktujte nás na 
+            <a href={`mailto:${siteConfig.email}`} class="font-semibold text-brand hover:text-brand-dark">
+              {siteConfig.email}
+            </a>.
+          </p>
+        </div>
+      </section>
+      
+    </div>
+  </section>
+</Layout>

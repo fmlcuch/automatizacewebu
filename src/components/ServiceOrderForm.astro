@@ -13,30 +13,30 @@ const { serviceName, sourcePage } = Astro.props;
       <div class="max-w-xl">
         <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Objednávka</p>
         <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">
-          Objednávka služby přes formulář
+          Nezávazná objednávka služby
         </h2>
         <p class="mt-5 text-lg leading-8 text-slate-600">
-          Vyplňte několik základních informací a pošlete nám stručný kontext. Ozveme se s potvrzením
-          objednávky, upřesněním dalšího postupu a případně i s požadavkem na bezpečné předání přístupů.
+          Vyplňte několik základních informací a pošlete nám stručný kontext. Náš tým se vám ozve s potvrzením
+          rozsahu, upřesněním postupu a pokyny pro bezpečné vytvoření účtu.
         </p>
         <div class="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Co je dobré uvést</p>
           <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
-            <li>Název nebo adresu webu, kterého se služba týká.</li>
-            <li>Orientační objem obsahu, produktů, obrázků nebo dat.</li>
-            <li>Specifická omezení, termín nebo návaznost na další systém.</li>
+            <li>Adresu webu nebo e-shopu, kterého se úprava týká.</li>
+            <li>Orientační objem obsahu (počet stránek, produktů nebo obrázků).</li>
+            <li>Specifická přání, požadovaný termín nebo návaznost na jiné systémy.</li>
           </ul>
         </div>
       </div>
 
       <div class="card-shell p-6 md:p-8">
-        <h3 class="text-2xl font-semibold text-slate-900">{serviceName}</h3>
+        <h3 class="text-2xl font-bold text-slate-900">{serviceName}</h3>
         <p class="mt-4 text-base leading-7 text-slate-600">
-          Objednávku odešleme do Make.com webhooku a po úspěšném odeslání vás přesměrujeme na děkovnou stránku.
+          Vyplňte formulář a náš systém vás po úspěšném odeslání okamžitě přesměruje na další instrukce.
         </p>
 
         <form
-          action="https://hook.eu1.make.com/example"
+          action="https://hook.eu1.make.com/45jkjvnr2h6r0k6rsibtrwmuj9w4zbyc"
           method="POST"
           class="mt-8 space-y-5"
           data-async-form
@@ -54,7 +54,7 @@ const { serviceName, sourcePage } = Astro.props;
           </div>
 
           <div>
-            <label for="order_name" class="mb-2 block text-sm font-medium text-slate-700">Jméno</label>
+            <label for="order_name" class="mb-2 block text-sm font-medium text-slate-700">Jméno a příjmení</label>
             <input id="order_name" name="name" type="text" class="field-shell" required autocomplete="name" />
           </div>
 
@@ -72,7 +72,7 @@ const { serviceName, sourcePage } = Astro.props;
           </div>
 
           <div>
-            <label for="order_website" class="mb-2 block text-sm font-medium text-slate-700">Web</label>
+            <label for="order_website" class="mb-2 block text-sm font-medium text-slate-700">Web projektu (volitelné)</label>
             <input
               id="order_website"
               name="website"
@@ -84,39 +84,43 @@ const { serviceName, sourcePage } = Astro.props;
           </div>
 
           <div>
-            <label for="order_scope" class="mb-2 block text-sm font-medium text-slate-700">Rozsah nebo objem</label>
+            <label for="order_scope" class="mb-2 block text-sm font-medium text-slate-700">Orientační rozsah nebo objem</label>
             <input
               id="order_scope"
               name="scope"
               type="text"
               class="field-shell"
               required
-              placeholder="Např. 350 produktů, 1 000 obrázků nebo 80 normostran"
+              placeholder="Např. 350 produktů, 1 000 obrázků nebo 40 stránek webu"
             />
           </div>
 
           <div>
-            <label for="order_message" class="mb-2 block text-sm font-medium text-slate-700">Zpráva</label>
+            <label for="order_message" class="mb-2 block text-sm font-medium text-slate-700">Vaše upřesnění nebo poznámka</label>
             <textarea
               id="order_message"
               name="message"
               class="field-shell min-h-40"
               required
-              placeholder="Doplňte prosím důležité souvislosti, termín nebo specifický požadavek."
+              placeholder="Doplňte prosím důležité souvislosti, současný stav, termín nebo specifické požadavky."
             ></textarea>
           </div>
 
           <button type="submit" class="btn-primary w-full" data-loading-label="Odesíláme objednávku...">
-            <span data-button-label>Odeslat objednávku</span>
+            <span data-button-label>Odeslat poptávku</span>
           </button>
-          <p class="text-sm leading-7 text-slate-500">
-            Odesláním formuláře berete na vědomí zpracování osobních údajů podle
-            <a href="/ochrana-osobnich-udaju" class="font-semibold text-brand hover:text-brand-dark">
-              zásad ochrany osobních údajů
-            </a>.
-          </p>
-          <p data-form-status aria-live="polite" class="text-sm text-slate-500">
-            Po odeslání vám objednávku potvrdíme a navážeme dalším krokem.
+          
+          <div class="mt-4 text-center">
+            <p class="text-xs leading-6 text-slate-500">
+              Odesláním formuláře berete na vědomí zpracování osobních údajů podle
+              <a href="/ochrana-osobnich-udaju" class="font-semibold text-brand transition hover:text-brand-dark">
+                zásad ochrany soukromí
+              </a>.
+            </p>
+          </div>
+          
+          <p data-form-status aria-live="polite" class="text-sm text-slate-500 hidden">
+            <!-- Prostor pro automatické JS hlášky -->
           </p>
         </form>
       </div>

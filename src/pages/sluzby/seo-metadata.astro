@@ -7,16 +7,16 @@ const pageUrl = "/sluzby/seo-metadata";
 
 const faq = [
   {
-    question: "Do kterých pluginů metadata zapisujete?",
-    answer: "Standardně pracujeme s Yoast SEO, Rank Math a All in One SEO. Pokud používáte jiný plugin, prověříme kompatibilitu předem."
+    question: "Do kterých pluginů umíte metadata automaticky zapisovat?",
+    answer: "Standardně a nejraději pracujeme s pluginy Yoast SEO, Rank Math a All in One SEO. Pokud používáte jiný plugin, prověříme jeho kompatibilitu ještě před začátkem práce."
   },
   {
-    question: "Musím dodat klíčová slova?",
-    answer: "Nemusíte. Služba zahrnuje analýzu obsahu každé stránky nebo produktu a vytažení 3 až 5 relevantních klíčových slov."
+    question: "Musím vám dodat tabulku s klíčovými slovy?",
+    answer: "Nemusíte. Služba zahrnuje inteligentní analýzu obsahu každé jednotlivé stránky nebo produktu, ze kterého AI sama vytáhne 3 až 5 nejrelevantnějších klíčových slov a na jejich základě text sestaví."
   },
   {
-    question: "Pro koho je služba vhodná?",
-    answer: "Typicky pro firemní weby a e-shopy, které mají větší množství stránek nebo produktů a nechtějí metadata dopisovat ručně."
+    question: "Pro koho je tato služba primárně vhodná?",
+    answer: "Typicky pro firemní weby, magazíny a e-shopy, které mají větší množství stránek nebo produktů a nechtějí ztrácet dny až týdny ručním dopisováním SEO popisků."
   }
 ];
 
@@ -26,7 +26,7 @@ const serviceSchema = {
   serviceType: "Hromadná tvorba SEO metadat ve WordPressu",
   name: "SEO metadata",
   description:
-    "Analýza obsahu, vytažení klíčových slov a vygenerování meta description pro stránky nebo produkty včetně zápisu do SEO pluginu.",
+    "Automatická analýza obsahu, vytažení klíčových slov a vygenerování meta popisků s vysokou mírou prokliku pro stránky i produkty včetně zápisu do SEO pluginu.",
   provider: {
     "@type": "Organization",
     name: "automatizacewebu.cz",
@@ -52,11 +52,11 @@ const serviceSchema = {
       <div class="max-w-3xl">
         <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Služba</p>
         <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
-          SEO metadata pro stránky a produkty bez ručního přepisování
+          SEO metadata pro weby a e-shopy bez ručního přepisování
         </h1>
         <p class="mt-6 text-lg leading-8 text-slate-600">
-          Zvyšte proklikovost z vyhledávačů bez hodin nudné práce. AI si přečte váš obsah a vytvoří
-          popisky, které lákají ke kliknutí.
+          Zvyšte okamžitě proklikovost z vyhledávačů bez stovek hodin nudné práce. Umělá inteligence si "přečte" váš obsah a vytvoří
+          unikátní popisky, které lákají zákazníky ke kliknutí.
         </p>
         <div class="mt-8 flex flex-col gap-4 sm:flex-row">
           <a href="#objednavka" class="btn-primary">Objednat službu</a>
@@ -72,12 +72,12 @@ const serviceSchema = {
             <p class="mt-1 text-2xl font-semibold text-slate-900">6 Kč / produkt nebo stránka</p>
           </div>
           <div class="rounded-2xl bg-slate-50 p-4">
-            <p class="text-sm text-slate-500">Příklad</p>
+            <p class="text-sm text-slate-500">Příklad z praxe</p>
             <p class="mt-1 text-lg font-semibold text-slate-900">400 produktů = 2 400 Kč</p>
-            <p class="mt-2 text-sm leading-6 text-slate-600">Kompletně na klíč včetně licencí a AI kreditů.</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Kompletně na klíč včetně všech licencí a poplatků za umělou inteligenci.</p>
           </div>
           <div class="rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-7 text-slate-700">
-            Minimální hodnota objednávky: <strong>2 000 Kč</strong>.
+            Minimální hodnota jedné objednávky: <strong>2 000 Kč</strong>.
           </div>
         </div>
       </aside>
@@ -89,17 +89,17 @@ const serviceSchema = {
       <div>
         <SectionHeading
           eyebrow="Problém zákazníka"
-          title="Obsah na webu existuje, ale ve výsledcích vyhledávání nepůsobí přesvědčivě."
-          description="Ruční psaní meta popisků je pomalé a u větších katalogů prakticky nereálné. Výsledkem bývají prázdná pole, duplicitní texty nebo nečitelný automatický úryvek."
+          title="Obsah na webu sice existuje, ale ve výsledcích vyhledávání nepůsobí přesvědčivě."
+          description="Ruční psaní SEO popisků je pomalé a u větších katalogů prakticky nereálné. Výsledkem bývají buď prázdná pole, zkopírované duplicitní texty, nebo vyhledávačem náhodně vytvořený a nečitelný úryvek textu."
         />
       </div>
       <div class="card-shell p-6">
         <h2 class="text-2xl font-semibold text-slate-900">Co služba řeší</h2>
         <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
-          <li>Analyzuje obsah každé vybrané stránky nebo produktu.</li>
-          <li>Vytáhne 3 až 5 relevantních klíčových slov nebo štítků.</li>
-          <li>Vygeneruje meta description v odpovídající délce a tónu.</li>
-          <li>Zapíše výstupy přímo do Yoastu, Rank Math nebo AIOSEO.</li>
+          <li>AI si pozorně přečte a pochopí obsah každé vybrané stránky nebo produktu.</li>
+          <li>Automaticky vytáhne 3 až 5 nejvíce relevantních klíčových slov a SEO štítků.</li>
+          <li>Vygeneruje chytlavý meta description (popisek) v ideální povolené délce.</li>
+          <li>Vše bleskově zapíše přímo do políček ve vašem Yoastu, Rank Math nebo AIOSEO pluginu.</li>
         </ul>
       </div>
     </div>
@@ -108,21 +108,21 @@ const serviceSchema = {
   <section class="section-shell bg-surface">
     <div class="container-shell grid gap-6 lg:grid-cols-2">
       <article class="card-shell p-6">
-        <h2 class="text-2xl font-semibold text-slate-900">Co zákazník dostane</h2>
+        <h2 class="text-2xl font-semibold text-slate-900">Co jako zákazník dostanete</h2>
         <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
-          <li>Hromadné zpracování vybraných URL nebo produktů.</li>
-          <li>Meta popisky připravené na vyšší proklikovost z výsledků vyhledávání.</li>
-          <li>Klíčová slova a štítky vytažené z obsahu bez ručního hodnocení každé stránky.</li>
-          <li>Přímý zápis do WordPress SEO pluginu bez další administrativy.</li>
+          <li>Okamžité hromadné zpracování celého e-shopu nebo blogu.</li>
+          <li>Meta popisky profesionálně napsané pro vyšší míru prokliku (CTR) z Google.</li>
+          <li>Klíčová slova vytažená přímo z reálného obsahu bez vašeho zásahu.</li>
+          <li>Přímý zápis dat do WordPress databáze bez vaší další ruční administrativy.</li>
         </ul>
       </article>
       <article class="card-shell p-6">
-        <h2 class="text-2xl font-semibold text-slate-900">Trust prvky</h2>
+        <h2 class="text-2xl font-semibold text-slate-900">Proč zvolit toto řešení</h2>
         <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
-          <li>Transparentní cena po kusech, bez hodinových sazeb.</li>
-          <li>Bez závazků a bez dalších měsíčních licencí.</li>
-          <li>Rychlé dodání i u větších katalogů.</li>
-          <li>Jasně vymezený výstup a minimální hodnota objednávky.</li>
+          <li>Platíte transparentní cenu pouze za zpracované kusy, žádné drahé hodinové sazby.</li>
+          <li>Vše je bez závazků a bez nutnosti platit agentuře další měsíční paušály.</li>
+          <li>Rychlé dodání a zpracování i u katalogů s desítkami tisíc produktů.</li>
+          <li>Celý systém běží bezpečně a pod plnou kontrolou.</li>
         </ul>
       </article>
     </div>
@@ -147,8 +147,8 @@ const serviceSchema = {
   </section>
 
   <CTASection
-    title="Máte stovky produktů a nechcete metadata řešit ručně?"
-    description="Službu umíme nasadit i na větší katalogy, pokud je struktura obsahu v pořádku a data jsou ve WordPressu dostupná."
+    title="Máte stovky produktů a nechcete už metadata řešit ručně?"
+    description="Službu umíme nasadit i na ty největší e-shopy. Pošlete nám nezávaznou poptávku a obratem vám naceníme řešení."
     primaryHref="#objednavka"
     primaryLabel="Objednat službu"
     secondaryHref="/kontakt"

@@ -17,37 +17,37 @@ const latestPosts = posts.slice(0, 3);
 const services = [
   {
     title: "Oprava diakritiky",
-    description: "Vyčištění článků, stránek i produktů od chybějící diakritiky, překlepů a stylové roztříštěnosti.",
+    description: "Hromadná kontrola a oprava textů ve WordPressu. Zbavte se chybějících háčků, překlepů a sjednoťte tón komunikace napříč webem.",
     price: "4 900 Kč",
     href: "/sluzby/oprava-diakritiky"
   },
   {
     title: "AI prolinkování & FAQ",
-    description: "Automatické interní propojování starých článků s novými a generování validních SEO schémat.",
-    price: "5 900 Kč",
-    href: "/sluzby/ai-prolinkovani-faq"
+    description: "Automatické propojování starších článků s novými pro okamžité posílení vnitřního SEO a lepší indexaci na vyhledávačích.",
+    price: "3 900 Kč",
+    href: "/sluzby/ai-prolinkovani"
   },
   {
     title: "SEO metadata",
-    description: "Hromadné doplnění meta description a klíčových štítků přímo do vašeho SEO pluginu ve WordPressu.",
+    description: "Automatické doplnění chytlavých meta popisků a klíčových slov přímo do vašeho Yoast, Rank Math nebo AIOSEO pluginu.",
     price: "2 000 Kč",
     href: "/sluzby/seo-metadata"
   },
   {
     title: "ALT texty",
-    description: "Automatické doplnění popisů obrázků pro lepší dohledatelnost i přístupnost webu.",
+    description: "Chytrý vizuální popis obrázků pro výrazně vyšší návštěvnost z Google Obrázků a stoprocentní pořádek v galerii médií.",
     price: "2 000 Kč",
     href: "/sluzby/alt-texty"
   },
   {
     title: "AI analytik",
-    description: "Pravidelný e-mail s lidsky čitelným souhrnem návštěvnosti a doporučením dalších kroků.",
+    description: "Pravidelný pondělní report do e-mailu. Lidsky psané shrnutí návštěvnosti s konkrétními tipy na zlepšení byznysu.",
     price: "2 000 Kč / měsíc",
     href: "/sluzby/ai-analytik"
   },
   {
     title: "Propojení systémů",
-    description: "Jedno konkrétní napojení mezi WordPressem a dalším systémem bez zbytečné složitosti.",
+    description: "Jednoúčelová integrace. Propojte bezpečně formuláře, objednávky či kontakty z WordPressu s vaším CRM nebo účetnictvím.",
     price: "9 900 Kč",
     href: "/sluzby/propojeni-systemu"
   }
@@ -66,8 +66,8 @@ const schemas = [
     "@type": "ProfessionalService",
     "name": "automatizacewebu.cz",
     "url": "https://automatizacewebu.cz/",
-    "image": "https://automatizacewebu.cz/og-image.jpg", // Doplňte reálnou URL k obrázku
-    "description": "Automatizace rutinní práce kolem WordPressu, obsahu a dat bez drahých agentur.",
+    "image": "https://automatizacewebu.cz/og-image.jpg",
+    "description": "Chytrá automatizace rutinní práce kolem WordPressu, obsahu a dat bez drahých agenturních paušálů.",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "CZ"
@@ -79,50 +79,50 @@ const schemas = [
 
 <Layout
   title="Automatizace WordPressu, obsahu a dat | automatizacewebu.cz"
-  description="Pomáháme firmám automatizovat rutinní práci kolem WordPressu, obsahu a dat bez drahých agentur a měsíčních licencí."
+  description="Pomáháme firmám zautomatizovat rutinní procesy kolem WordPressu, e-shopových dat a správy obsahu. Rychle, bezpečně a bez měsíčních paušálů."
   canonical="/"
   schema={schemas}
 >
   <Hero
-    eyebrow="Automatizace bez zbytečné režie"
-    title="Pomáháme firmám automatizovat rutinní práci kolem WordPressu, obsahu a dat."
-    description="Dodáme konkrétní službu s jasným rozsahem, cenou a termínem. Bez drahých agentur, bez skrytých licencí a bez zbytečné technické omáčky."
+    eyebrow="Chytrá automatizace procesů"
+    title="Osvoboďte svůj tým od rutinní práce kolem WordPressu a e-shopových dat"
+    description="Dodáváme pevně vymezená automatizovaná řešení s jasným rozsahem, fixní cenou a rychlým spuštěním. Bez zdlouhavých IT projektů, skrytých licencí a měsíčních agenturních paušálů."
     primaryHref="/kontakt"
-    primaryLabel="Poptat automatizaci"
+    primaryLabel="Poptat řešení"
     secondaryHref="/sluzby"
-    secondaryLabel="Zobrazit služby"
+    secondaryLabel="Zobrazit nabídku"
     highlights={[
-      "Jednorázové i průběžné automatizace pro WordPress a WooCommerce.",
-      "Bezpečné předání přístupů přes šifrovaný formulář po potvrzení objednávky.",
-      "Nasazení typicky do 3 pracovních dnů podle rozsahu služby.",
-      "Ceny zahrnují AI kredity i provozní náklady dle nabídky."
+      "Chytré integrace dat a automatická optimalizace webového obsahu.",
+      "Maximální bezpečí – přístupy předáváte formou nativní pozvánky.",
+      "Spuštění a otestování celého řešení typicky do 3 pracovních dnů.",
+      "Transparentní koncové ceny včetně provozu systému a AI kreditů."
     ]}
   />
 
   <section class="section-shell">
     <div class="container-shell">
       <SectionHeading
-        eyebrow="Proč s námi"
-        title="Služby navržené tak, aby rychle odstranily ruční práci."
-        description="Neprodáváme obecné konzultace. Dodáváme přesně vymezené automatizace, které mají jasný výstup, cenu a termín."
+        eyebrow="Naše filozofie"
+        title="Řešení navržená pro okamžitý výsledek bez zdlouhavých schůzek."
+        description="Neprodáváme hodiny obecných konzultací ani složité analýzy. Dodáváme hotové balíčky, které okamžitě odstraní ruční rutinu z vašeho každodenního provozu."
         align="center"
       />
 
       <div class="mt-12 grid gap-6 md:grid-cols-3">
         <BenefitCard
           icon="⏱"
-          title="Úspora času"
-          description="Odstraníte opakovanou ruční práci při úpravách textů, doplňování metadat nebo přepisování dat mezi systémy."
+          title="Okamžitá úspora času"
+          description="Odstraníte zdlouhavé ruční přepisování objednávek, administrativní doplňování SEO popisků nebo zdlouhavé opravování stovek textů."
         />
         <BenefitCard
           icon="💳"
-          title="Žádné skryté poplatky"
-          description="U jednorázových služeb platíte pevně danou cenu. Žádné nepřehledné hodinovky ani další licence bokem."
+          title="Transparentní fixní ceny"
+          description="U všech našich služeb přesně víte, kolik zaplatíte. Žádné natahování hodinových sazeb ani skryté průběžné poplatky."
         />
         <BenefitCard
           icon="⚡"
-          title="Rychlé nasazení"
-          description="Většinu služeb umíme převzít, zpracovat a vrátit v průběhu několika dnů od uhrazení a dodání přístupů."
+          title="Blesková implementace"
+          description="Díky připraveným procesům dokážeme většinu automatizací převzít, bezpečně nastavit a otestovat v řádu několika dnů."
         />
       </div>
     </div>
@@ -132,36 +132,35 @@ const schemas = [
     <div class="container-shell">
       <SectionHeading
         eyebrow="Jak to funguje"
-        title="Jednoduchý proces bez zbytečných schůzek."
-        description="Každý krok je navržený tak, aby byl srozumitelný pro marketing, provoz i majitele firmy."
+        title="Jednoduchý proces postavený na efektivitě"
+        description="Každý krok je navržený tak, aby minimálně zatěžoval váš provozní, marketingový i manažerský tým."
       />
 
-      {/* Sémantická úprava: div/article nahrazen za ol/li pro lepší SEO pochopení struktury procesu */}
       <ol class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4 list-none p-0">
         {[
           {
             step: "01",
-            title: "Vyberete službu",
-            description: "Podíváte se na detail služby, cenu a rozsah. Pokud si nejste jistí, ozvete se přes formulář."
+            title: "Zvolíte si oblast",
+            description: "Vyberete si z našich hotových balíčků podle toho, která ruční činnost na webu váš tým aktuálně nejvíc zdržuje a zatěžuje."
           },
           {
             step: "02",
-            title: "Odešlete objednávku",
-            description: "Vyplníte krátký formulář přímo na landing page služby bez složitého schvalování a zbytečného čekání."
+            title: "Nezávazná poptávka",
+            description: "Vyplníte krátký formulář. Během 24 hodin vám zašleme e-mailem přesný návrh postupu a finální fixní kalkulaci."
           },
           {
             step: "03",
-            title: "Předáte přístupy bezpečně",
-            description: "Po potvrzení objednávky vám případně pošleme zabezpečený postup pro předání přístupů k WordPressu nebo dalším nástrojům."
+            title: "Bezpečné propojení",
+            description: "Po odsouhlasení nás jednoduše pozvete do administrace svého WordPressu jako nového uživatele. Žádné sdílení vašich hesel."
           },
           {
             step: "04",
-            title: "Hotovo do 3 dnů",
-            description: "Po převzetí podkladů službu zpracujeme a vrátíme s jasným výstupem nebo spuštěnou automatizací."
+            title: "Předání a spuštění",
+            description: "Systém kompletně nastavíme, důkladně otestujeme a předáme vám funkční řešení s garantovaným bezproblémovým chodem."
           }
         ].map((item) => (
           <li class="card-shell p-6 bg-white rounded-xl shadow-sm">
-            <p class="text-sm font-semibold tracking-[0.2em] text-brand" aria-hidden="true">{item.step}</p>
+            <p class="text-sm font-bold tracking-[0.2em] text-brand" aria-hidden="true">{item.step}</p>
             <h3 class="mt-4 text-xl font-semibold text-slate-900">{item.title}</h3>
             <p class="mt-3 text-base leading-7 text-slate-600">{item.description}</p>
           </li>
@@ -173,9 +172,9 @@ const schemas = [
   <section class="section-shell">
     <div class="container-shell">
       <SectionHeading
-        eyebrow="Služby"
-        title="Vyberte si konkrétní automatizaci podle toho, co vás dnes nejvíc brzdí."
-        description="Každá služba má vlastní landing page s přesným rozsahem, cenou, FAQ a objednávkou přes formulář."
+        eyebrow="Katalog řešení"
+        title="Vyberte si konkrétní automatizaci podle vašich aktuálních potřeb."
+        description="Každá specializovaná služba obsahuje garantovaný rozsah, transparentní cenový model a FAQ pro rychlé rozhodování."
       />
 
       <div class="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
@@ -190,12 +189,12 @@ const schemas = [
     <div class="container-shell">
       <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <SectionHeading
-          eyebrow="Blog"
-          title="Nejnovější články o automatizaci WordPressu a provozu webu."
-          description="Krátké, praktické texty pro firmy, které chtějí odstranit ruční práci a zlepšit kvalitu webového obsahu."
+          eyebrow="Know-how"
+          title="Praktické tipy pro automatizaci a efektivní správu webu."
+          description="Žádná teoretická omáčka. Pouze konkrétní návody a postupy, jak odstranit ruční práci a zlepšit kvalitu dat i obsahu."
         />
         <a href="/blog" class="btn-secondary">
-          Všechny články
+          Zobrazit všechny články
         </a>
       </div>
 
@@ -215,11 +214,11 @@ const schemas = [
   </section>
 
   <CTASection
-    title="Chcete odstranit jednu konkrétní ruční činnost z vašeho webu?"
-    description="Popište nám problém, který vás nejvíc zdržuje. Ozveme se s doporučením nejvhodnější služby nebo navrhneme jednoduchý postup."
+    title="Máte na webu konkrétní úkon, který vás už nebaví dělat ručně?"
+    description="Popište nám ho stručně vlastními slovy. Obratem posoudíme, zda je vhodný pro automatizaci, a navrhneme vám nejrychlejší cestu k trvalé úspoře času."
     primaryHref="/kontakt"
     primaryLabel="Nezávazně poptat"
     secondaryHref="/sluzby"
-    secondaryLabel="Projít všechny služby"
+    secondaryLabel="Prohlédnout všechny služby"
   />
 </Layout>

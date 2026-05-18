@@ -11,11 +11,13 @@ export async function GET() {
     "/ochrana-osobnich-udaju",
     "/blog",
     "/sluzby",
+    "/obchodni-podminky",
     "/sluzby/oprava-diakritiky",
     "/sluzby/seo-metadata",
     "/sluzby/alt-texty",
     "/sluzby/ai-analytik",
-    "/sluzby/propojeni-systemu"
+    "/sluzby/propojeni-systemu",
+    "/sluzby/ai-prolinkovani"
   ];
 
   const urls = [

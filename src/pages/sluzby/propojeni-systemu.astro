@@ -7,26 +7,26 @@ const pageUrl = "/sluzby/propojeni-systemu";
 
 const faq = [
   {
-    question: "Jaké typy propojení řešíte?",
-    answer: "Typicky formuláře do Google Tabulek, objednávky do fakturačního systému nebo kontakty do CRM. Zaměřujeme se na jedno jasně vymezené workflow."
+    question: "Jaké typy propojení obvykle řešíte?",
+    answer: "Typicky jde o automatické odesílání formulářů z webu do sdílených tabulek, přenos objednávek do fakturačního systému nebo synchronizaci nových kontaktů do CRM. Zaměřujeme se vždy na jedno jasně vymezené datové workflow."
   },
   {
-    question: "Je v ceně i provoz?",
-    answer: "Ano. Cena 9 900 Kč zahrnuje implementaci i provoz integrace na prvních 12 měsíců."
+    question: "Je v ceně zahrnutý i samotný provoz integrace?",
+    answer: "Ano. Jednorázová cena 9 900 Kč zahrnuje technickou implementaci, otestování a kompletní provoz celého propojení na prvních 12 měsíců."
   },
   {
-    question: "Kolik stojí další rok?",
-    answer: "Další rok se platí jen udržovací poplatek 1 500 Kč ročně, pokud chcete integraci ponechat v provozu."
+    question: "Kolik stojí další rok provozu?",
+    answer: "Následující roky se platí pouze provozní a udržovací poplatek 1 500 Kč ročně, pokud chcete integraci i nadále využívat. Žádné další skryté poplatky neúčtujeme."
   }
 ];
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "Jednorázové propojení WordPressu s dalším systémem přes Make.com",
+  serviceType: "Jednorázové propojení WordPressu s dalším systémem",
   name: "Propojení systémů",
   description:
-    "Analýza a propojení WordPressu nebo WooCommerce s jedním dalším systémem přes Make.com včetně ročního provozu.",
+    "Analýza a automatizované propojení WordPressu nebo WooCommerce s jedním dalším systémem včetně ročního provozu na klíč.",
   provider: {
     "@type": "Organization",
     name: "automatizacewebu.cz",
@@ -43,7 +43,7 @@ const serviceSchema = {
 
 <Layout
   title="Propojení WordPressu s dalšími systémy | automatizacewebu.cz"
-  description="Postavíme jedno konkrétní Make.com propojení mezi WordPressem nebo WooCommerce a dalším systémem bez zbytečné složitosti."
+  description="Postavíme jedno konkrétní datové propojení mezi WordPressem nebo WooCommerce a vaším dalším systémem bez zbytečné složitosti."
   canonical={pageUrl}
   schema={serviceSchema}
 >
@@ -52,11 +52,11 @@ const serviceSchema = {
       <div class="max-w-3xl">
         <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Služba</p>
         <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
-          Jedno účelové propojení WordPressu s dalším systémem
+          Jednoúčelové propojení WordPressu s vaším systémem
         </h1>
         <p class="mt-6 text-lg leading-8 text-slate-600">
-          Potřebujete vyřešit jednu jedinou otravnou věc, která vám denně bere čas? Přesně na to je
-          tahle služba. Bez velkého IT projektu a bez zbytečných funkcí navíc.
+          Potřebujete vyřešit jednu konkrétní rutinu, která vám denně bere čas? Přesně na to je
+          tahle služba. Zprovozníme bezpečné propojení dvou systémů bez nutnosti programovat velký IT projekt a bez zbytečných funkcí navíc.
         </p>
         <div class="mt-8 flex flex-col gap-4 sm:flex-row">
           <a href="#objednavka" class="btn-primary">Objednat službu</a>
@@ -72,10 +72,10 @@ const serviceSchema = {
             <p class="mt-1 text-2xl font-semibold text-slate-900">9 900 Kč</p>
           </div>
           <div class="rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-slate-600">
-            Cena zahrnuje provoz integrace na prvních 12 měsíců.
+            Cena zahrnuje nasazení a provoz integrace na prvních 12 měsíců.
           </div>
           <div class="rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-7 text-slate-700">
-            Další rok: <strong>1 500 Kč / rok</strong> jako udržovací poplatek.
+            Další rok provozu: <strong>1 500 Kč / rok</strong> (udržovací poplatek).
           </div>
         </div>
       </aside>
@@ -88,16 +88,16 @@ const serviceSchema = {
         <SectionHeading
           eyebrow="Problém zákazníka"
           title="Jedna opakovaná ruční činnost zdržuje tým každý den."
-          description="Formuláře se přepisují do tabulek, objednávky se ručně přenáší do fakturace a kontakty končí v několika nespojených nástrojích."
+          description="Formuláře se musí ručně přepisovat do sdílených tabulek, objednávky se po jedné přenáší do fakturace a kontakty zbytečně končí v několika nespojených nástrojích."
         />
       </div>
       <div class="card-shell p-6">
         <h2 class="text-2xl font-semibold text-slate-900">Co služba řeší</h2>
         <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
-          <li>Analyzuje jeden konkrétní proces, který dnes děláte ručně.</li>
-          <li>Propojí WordPress nebo WooCommerce s jedním dalším systémem přes Make.com.</li>
-          <li>Ošetří tok dat tak, aby fungoval stabilně a srozumitelně.</li>
-          <li>Odstraní opakovaný administrativní krok z každodenního provozu.</li>
+          <li>Zanalyzujeme jeden konkrétní proces, který dnes děláte ručně.</li>
+          <li>Bezpečně propojíme WordPress nebo WooCommerce s jedním dalším systémem.</li>
+          <li>Ošetříme tok dat tak, aby vše fungovalo naprosto stabilně a spolehlivě.</li>
+          <li>Okamžitě odstraníme opakovaný administrativní krok z vašeho každodenního provozu.</li>
         </ul>
       </div>
     </div>
@@ -108,19 +108,19 @@ const serviceSchema = {
       <article class="card-shell p-6">
         <h2 class="text-2xl font-semibold text-slate-900">Co zákazník dostane</h2>
         <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
-          <li>Analýzu a návrh jednoho konkrétního propojení.</li>
-          <li>Implementaci workflow přes Make.com.</li>
-          <li>Spuštěnou integraci s provozem zahrnutým na 12 měsíců.</li>
-          <li>Jasně vymezený rozsah bez bobtnání projektu do dalších úprav.</li>
+          <li>Analýzu a technický návrh jednoho konkrétního propojení.</li>
+          <li>Kompletní implementaci automatizovaného workflow.</li>
+          <li>Spuštěnou a otestovanou integraci s provozem zahrnutým na 12 měsíců.</li>
+          <li>Jasně vymezený rozsah projektu bez rizika, že se úpravy skrytě prodraží.</li>
         </ul>
       </article>
       <article class="card-shell p-6">
-        <h2 class="text-2xl font-semibold text-slate-900">Trust prvky</h2>
+        <h2 class="text-2xl font-semibold text-slate-900">Proč zvolit toto řešení</h2>
         <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
-          <li>Jednorázová cena a předem známý rozsah.</li>
-          <li>Bez závazků a bez měsíčních agenturních paušálů.</li>
-          <li>První rok provozu je v ceně.</li>
-          <li>Rychlé dodání u standardních integračních scénářů.</li>
+          <li>Jednorázová cena a předem přesně známý rozsah práce.</li>
+          <li>Žádné dlouhodobé závazky ani vysoké měsíční agenturní paušály.</li>
+          <li>První rok kompletního provozu integrace je již zahrnut v ceně.</li>
+          <li>Extrémně rychlé dodání u běžných integračních scénářů.</li>
         </ul>
       </article>
     </div>
@@ -146,7 +146,7 @@ const serviceSchema = {
 
   <CTASection
     title="Máte jednu konkrétní ruční operaci, která už vás nebaví?"
-    description="Popište ji a ověříme, zda je vhodná pro jednorázové propojení v rámci této služby."
+    description="Popište nám ji. Okamžitě ověříme, zda je vhodná pro jednorázové propojení v rámci této dostupné služby."
     primaryHref="#objednavka"
     primaryLabel="Objednat službu"
     secondaryHref="/kontakt"

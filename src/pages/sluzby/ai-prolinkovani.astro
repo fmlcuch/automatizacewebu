@@ -1,0 +1,151 @@
+---
+import CTASection from "../../components/CTASection.astro";
+import Layout from "../../layouts/Layout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import ServiceOrderForm from "../../components/ServiceOrderForm.astro";
+const pageUrl = "/sluzby/ai-prolinkovani";
+
+const faq = [
+  {
+    question: "Jaké přístupy budete potřebovat?",
+    answer: "Budeme potřebovat administrátorský přístup do vašeho WordPressu, abychom mohli bezpečně propojit náš automatizační systém s vaším webem. S nastavením celého prostředí vám kompletně pomůžeme."
+  },
+  {
+    question: "Nerozbije umělá inteligence strukturu mých článků ve WordPressu?",
+    answer: "Ne. V rámci automatizačního skriptu nastavujeme striktní systémové instrukce pro AI, které jí přikazují upravovat pouze čistý text a stoprocentně zachovávat stávající vzhled, formátování a blokovou strukturu stránek. Navíc je možné do celého procesu vložit schvalovací krok přes přehlednou tabulku, takže žádná změna neodejde na web bez vašeho vědomí."
+  },
+  {
+    question: "Platí se za provoz služby nějaké měsíční poplatky?",
+    answer: "Ne, naše služba je jednorázová za kompletní nastavení, otestování a implementaci celého systému na klíč. Samotný provoz pak využívá vaše vlastní přístupy k automatizaci a AI, kde platíte pouze za skutečný objem zpracovaných dat. Pro běžný firemní blog se tyto náklady na provoz pohybují v řádu jednotek až desítek korun měsíčně."
+  }
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Automatické interní propojování obsahu",
+  name: "AI interní prolinkování",
+  description:
+    "Automatické propojování starých článků s novými pomocí pokročilého automatizačního systému pro maximální viditelnost ve vyhledávačích.",
+  provider: {
+    "@type": "Organization",
+    name: "automatizacewebu.cz",
+    url: "https://automatizacewebu.cz"
+  },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "CZK",
+    price: "3900",
+    url: `https://automatizacewebu.cz${pageUrl}`
+  }
+};
+---
+
+<Layout
+  title="AI interní prolinkování pro WordPress | automatizacewebu.cz"
+  description="Automatické propojování starých článků s novými pomocí inteligentní automatizace pro maximální viditelnost ve vyhledávačích."
+  canonical={pageUrl}
+  schema={serviceSchema}
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell grid gap-10 lg:grid-cols-[1fr_360px]">
+      <div class="max-w-3xl">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Služba</p>
+        <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          AI interní prolinkování: automatické SEO pro váš blog
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Publikujete nový článek a zapomínáte na zpětné odkazy ze staršího obsahu? Propojte WordPress s moderní automatizací a nechte umělou inteligenci inteligentně propojit váš web pro okamžité posílení organické návštěvnosti.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#objednavka" class="btn-primary">Objednat službu</a>
+          <a href="/kontakt" class="btn-secondary">Nejdřív se zeptat</a>
+        </div>
+      </div>
+
+      <aside class="card-shell p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Cena</p>
+        <div class="mt-5 space-y-4">
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm text-slate-500">Jednorázová implementace</p>
+            <p class="mt-1 text-2xl font-semibold text-slate-900">5 900 Kč</p>
+          </div>
+          <div class="rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-7 text-slate-700">
+            Žádné měsíční poplatky agenturám. Cena zahrnuje kompletní nastavení inteligentního systému a otestování přímo na vašem webu.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell grid gap-12 lg:grid-cols-2">
+      <div>
+        <SectionHeading
+          eyebrow="Problém zákazníka"
+          title="Ruční budování interních odkazů zabírá hodiny drahocenného času."
+          description="Kvalitní vnitřní provázanost stránek výrazně posouvá vaše pozice ve vyhledávačích. Málokdo má ale čas při vydání každého nového článku procházet stovky starých textů a ručně doplňovat zpětné odkazy. Starší obsah tak zůstává zcela nevyužitý."
+        />
+      </div>
+      <div class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co služba řeší</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Ihned po vydání nového článku systém automaticky prohledá celý váš web a najde nejvhodnější kontextová místa.</li>
+          <li>Přirozeně zakomponuje odkaz na nový příspěvek do staršího relevantního textu s ohledem na správné znění odkazu.</li>
+          <li>Zpětně posiluje SEO autoritu nových stránek ihned po jejich publikaci bez jakékoliv vaší ruční práce.</li>
+          <li>Pomáhá vyhledávacím robotům lépe procházet vaši strukturu a indexovat nový obsah podstatně rychleji.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell bg-surface">
+    <div class="container-shell grid gap-6 lg:grid-cols-2">
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co jako zákazník dostanete</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Kompletně nastavený a na míru odladěný automatizační systém na vašem zabezpečeném účtu.</li>
+          <li>Bezpečné propojení vašeho WordPressu s pokročilým rozhraním umělé inteligence.</li>
+          <li>Vyladěné systémové pokyny pro AI, které striktně respektují HTML kód a vzhled vašeho webu.</li>
+          <li>Volitelný schvalovací mezikrok přes přehlednou tabulku pro absolutní kontrolu nad každým vloženým odkazem.</li>
+        </ul>
+      </article>
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Proč zvolit toto řešení</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Jednorázový náklad – neplatíte žádné předražené měsíční licence za specializované SEO pluginy či externí platformy.</li>
+          <li>Vše běží u vás – celou automatizaci, nastavení i veškerá data plně vlastníte vy na svém vlastním profilu.</li>
+          <li>Rychlé spuštění – kompletní nasazení, propojení a otestování funkčnosti na webu realizujeme do 3 pracovních dnů.</li>
+          <li>Bezpečnost na prvním místě – veškeré přístupy nám předáváte přes šifrovaný formulář a pracujeme s omezenými systémovými právy.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <ServiceOrderForm serviceName="AI interní prolinkování" sourcePage={pageUrl} />
+
+  <section class="section-shell">
+    <div class="container-shell">
+      <SectionHeading eyebrow="FAQ" title="Časté otázky" />
+      <div class="mt-10 space-y-4">
+        {faq.map((item) => (
+          <details class="card-shell p-6">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-base leading-7 text-slate-600">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Chcete automaticky vytěžit maximum SEO autority z každého článku?"
+    description="Tato služba je ideální pro firemní blogy, magazíny a e-shopy s obsahovým marketingem, které chtějí jednou provždy odstranit rutinní práci a okamžitě zlepšit vnitřní provázanost webu."
+    primaryHref="#objednavka"
+    primaryLabel="Objednat službu"
+    secondaryHref="/kontakt"
+    secondaryLabel="Položit dotaz"
+  />
+</Layout>

@@ -26,13 +26,32 @@ const services = [
           Řekněte nám, co chcete zautomatizovat.
         </h1>
         <p class="mt-6 text-lg leading-8 text-slate-600">
-          Popište problém, objem dat nebo konkrétní typ webu. Pokud bude dávat smysl některá z
-          hotových služeb, navrhneme rovnou nejrychlejší cestu.
+          Popište problém, objem dat nebo konkrétní typ webu. Pokud bude dávat smysl některá z našich
+          hotových služeb, navrhneme vám rovnou tu nejrychlejší cestu.
         </p>
 
-        <div class="mt-8 space-y-5 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+        <!-- Hlavní informační blok (působí jako proces firmy) -->
+        <div class="mt-8 space-y-6 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">E-mail</p>
+            <h3 class="font-semibold text-slate-900">1. Co se stane po odeslání?</h3>
+            <p class="mt-2 text-sm leading-7 text-slate-600">
+              Většinu poptávek analyzujeme do 24 hodin. Nepotřebujeme od vás složité zadání. Pokud budeme potřebovat detaily, doptáme se.
+            </p>
+          </div>
+          
+          <hr class="border-slate-100" />
+
+          <div>
+            <h3 class="font-semibold text-slate-900">2. Návrh řešení</h3>
+            <p class="mt-2 text-sm leading-7 text-slate-600">
+              Odpovíme vám s konkrétním návrhem postupu a cenovým rámcem. Vždy budete předem vědět, na čem jste a kolik času ušetříte.
+            </p>
+          </div>
+
+          <hr class="border-slate-100" />
+
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Přímý e-mail</p>
             <a
               href={`mailto:${siteConfig.email}`}
               class="mt-2 inline-flex text-lg font-semibold text-brand transition hover:text-brand-dark"
@@ -40,29 +59,23 @@ const services = [
               {siteConfig.email}
             </a>
           </div>
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Fakturační údaje</p>
-            <div class="mt-2 space-y-1 text-sm leading-7 text-slate-600">
-              <p>{siteConfig.ownerName}</p>
-              <p>IČO: {siteConfig.ico}</p>
-              <p>Sídlo: {siteConfig.city}</p>
-            </div>
-          </div>
-          <p class="rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-slate-600">
-            U většiny poptávek stačí jedna krátká zpráva. Nepotřebujeme dlouhý brief. Stačí problém,
-            objem a cílový výsledek.
-          </p>
+        </div>
+
+        <!-- Ztlumené zákonné informace pod hlavním blokem -->
+        <div class="mt-6 px-4 md:px-8 text-xs leading-6 text-slate-400">
+          <p>Provozovatel webu: {siteConfig.ownerName}, IČO: {siteConfig.ico}</p>
+          <p>Zapsán v živnostenském rejstříku. Nejsme plátci DPH. (Případně uprav podle reality)</p>
         </div>
       </div>
 
       <div class="card-shell p-6 md:p-8">
         <h2 class="text-3xl font-bold text-slate-900">Nezávazná poptávka</h2>
         <p class="mt-4 text-base leading-7 text-slate-600">
-          Formulář odešleme do Make.com webhooku a po úspěšném odeslání vás přesměrujeme na děkovnou stránku.
+          Vyplňte formulář a my se vám obratem ozveme s dalším postupem.
         </p>
 
         <form
-          action="https://hook.eu1.make.com/example"
+          action="https://hook.eu1.make.com/821cdwdb20a7fgj8jqbbur5n4ti0n95v"
           method="POST"
           class="mt-8 space-y-5"
           data-async-form
@@ -79,7 +92,7 @@ const services = [
           </div>
 
           <div>
-            <label for="name" class="mb-2 block text-sm font-medium text-slate-700">Jméno</label>
+            <label for="name" class="mb-2 block text-sm font-medium text-slate-700">Jméno a příjmení</label>
             <input id="name" name="name" type="text" class="field-shell" required autocomplete="name" />
           </div>
 
@@ -97,7 +110,7 @@ const services = [
           </div>
 
           <div>
-            <label for="website" class="mb-2 block text-sm font-medium text-slate-700">Web</label>
+            <label for="website" class="mb-2 block text-sm font-medium text-slate-700">Web projektu (volitelné)</label>
             <input
               id="website"
               name="website"
@@ -109,9 +122,9 @@ const services = [
           </div>
 
           <div>
-            <label for="service" class="mb-2 block text-sm font-medium text-slate-700">Výběr služby</label>
+            <label for="service" class="mb-2 block text-sm font-medium text-slate-700">O jakou službu máte zájem?</label>
             <select id="service" name="service" class="field-shell" required>
-              <option value="">Vyberte službu</option>
+              <option value="">Vyberte z možností</option>
               {services.map((service) => (
                 <option value={service}>{service}</option>
               ))}
@@ -119,27 +132,31 @@ const services = [
           </div>
 
           <div>
-            <label for="message" class="mb-2 block text-sm font-medium text-slate-700">Zpráva</label>
+            <label for="message" class="mb-2 block text-sm font-medium text-slate-700">Vaše zadání nebo dotaz</label>
             <textarea
               id="message"
               name="message"
               class="field-shell min-h-40"
               required
-              placeholder="Popište stručně problém, objem obsahu nebo konkrétní cíl."
+              placeholder="Popište stručně problém, objem obsahu nebo váš konkrétní cíl. Čím přesnější budete, tím lepší řešení navrhneme."
             ></textarea>
           </div>
 
           <button type="submit" class="btn-primary w-full" data-loading-label="Odesíláme poptávku...">
             <span data-button-label>Odeslat poptávku</span>
           </button>
-          <p class="text-sm leading-7 text-slate-500">
-            Odesláním formuláře berete na vědomí zpracování osobních údajů podle
-            <a href="/ochrana-osobnich-udaju" class="font-semibold text-brand hover:text-brand-dark">
-              zásad ochrany osobních údajů
-            </a>.
-          </p>
-          <p data-form-status aria-live="polite" class="text-sm text-slate-500">
-            Ozveme se co nejdříve s doporučením dalšího kroku.
+          
+          <div class="mt-4 text-center">
+            <p class="text-xs leading-6 text-slate-500">
+              Odesláním formuláře berete na vědomí zpracování osobních údajů podle
+              <a href="/ochrana-osobnich-udaju" class="font-semibold text-brand transition hover:text-brand-dark">
+                zásad ochrany soukromí
+              </a>.
+            </p>
+          </div>
+          
+          <p data-form-status aria-live="polite" class="text-sm text-slate-500 hidden">
+            <!-- Prostor pro JS chybové/úspěšné hlášky -->
           </p>
         </form>
       </div>
@@ -148,10 +165,10 @@ const services = [
 
   <CTASection
     title="Preferujete konkrétní službu s jasnou cenou?"
-    description="Podívejte se na připravené landing pages a odešlete objednávku služby rovnou přes formulář."
+    description="Podívejte se na připravené balíčky a odešlete objednávku služby rovnou."
     primaryHref="/sluzby"
-    primaryLabel="Zobrazit služby"
+    primaryLabel="Zobrazit nabídku služeb"
     secondaryHref="/blog"
-    secondaryLabel="Přečíst blog"
+    secondaryLabel="Inspirujte se na blogu"
   />
 </Layout>

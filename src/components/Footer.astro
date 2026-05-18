@@ -8,36 +8,41 @@ const navItems = [
   { href: "/sluzby", label: "Služby" },
   { href: "/blog", label: "Blog" },
   { href: "/kontakt", label: "Kontakt" },
-  { href: "/ochrana-osobnich-udaju", label: "Zásady ochrany osobních údajů" }
+  { href: "/ochrana-osobnich-udaju", label: "Zásady ochrany osobních údajů" },
+  { href: "/obchodni-podminky", label: "Všeobecné obchodní podmínky" }
+
 ];
 ---
 
 <footer class="border-t border-slate-200 bg-slate-50">
   <div class="container-shell grid gap-10 py-14 md:grid-cols-[1.1fr_0.8fr_1fr]">
+    
+    <!-- 1. Sloupec: Značka a představení -->
     <div class="space-y-4">
       <div class="flex items-center gap-3">
         <span
-          class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-brand text-lg font-bold text-white"
+          class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-brand text-lg font-bold text-white shadow-sm"
         >
           A
         </span>
         <div>
-          <p class="font-semibold text-slate-900">automatizacewebu.cz</p>
-          <p class="text-sm text-slate-500">Jednorázové automatizace pro WordPress, obsah a data</p>
+          <p class="font-bold text-slate-900">automatizacewebu.cz</p>
+          <p class="text-sm text-slate-500">Chytré automatizace pro WordPress</p>
         </div>
       </div>
       <p class="max-w-md text-sm leading-7 text-slate-600">
         Pomáháme firmám odstranit ruční práci kolem publikace obsahu, e-shopových dat a
-        opakovaných administrativních úkonů bez dlouhých smluv a bez skrytých licenčních poplatků.
+        opakovaných administrativních úkonů. Bez složitého programování a skrytých poplatků.
       </p>
     </div>
 
+    <!-- 2. Sloupec: Navigace -->
     <div>
       <p class="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Navigace</p>
       <ul class="space-y-3">
         {navItems.map((item) => (
           <li>
-            <a class="text-sm text-slate-600 transition hover:text-brand" href={item.href}>
+            <a class="text-sm font-medium text-slate-600 transition hover:text-brand" href={item.href}>
               {item.label}
             </a>
           </li>
@@ -45,30 +50,40 @@ const navItems = [
       </ul>
     </div>
 
-    <div class="space-y-4">
-      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Fakturační údaje</p>
-      <div class="space-y-2 text-sm leading-7 text-slate-600">
-        <p>{siteConfig.ownerName}</p>
-        <p>IČO: {siteConfig.ico}</p>
-        <p>Sídlo: {siteConfig.city}</p>
-        <p>
-          E-mail:
-          <a href={`mailto:${siteConfig.email}`} class="text-brand hover:text-brand-dark">
-            {siteConfig.email}
-          </a>
-        </p>
+    <!-- 3. Sloupec: Kontakt a Garance -->
+    <div class="space-y-5">
+      <div>
+        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Kontakt</p>
+        <a 
+          href={`mailto:${siteConfig.email}`} 
+          class="inline-block text-lg font-semibold text-brand transition hover:text-brand-dark"
+        >
+          {siteConfig.email}
+        </a>
       </div>
-      <p class="rounded-2xl border border-blue-100 bg-white p-4 text-sm leading-7 text-slate-600">
-        U jednorázových služeb neplatíte žádné měsíční licenční poplatky navíc. Cena zahrnuje práci,
-        AI kredity i potřebné provozní náklady dle konkrétní služby.
-      </p>
+      <div class="rounded-2xl border border-blue-100 bg-white p-4 text-sm leading-7 text-slate-600 shadow-sm">
+        <span class="block font-semibold text-slate-900 mb-1">Žádné skryté poplatky</span>
+        U jednorázových služeb neplatíte žádné měsíční licence agentuře. Cena zahrnuje naši práci,
+        nastavení systému i úvodní AI kredity.
+      </div>
     </div>
   </div>
 
-  <div class="border-t border-slate-200">
-    <div class="container-shell flex flex-col gap-2 py-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-      <p>&copy; {year} {siteConfig.ownerName}. Všechna práva vyhrazena.</p>
-      <p>Bez závazků. Transparentní ceny. Rychlé dodání.</p>
+  <!-- Spodní pruh: Copyright a Právní doložka -->
+  <div class="border-t border-slate-200 bg-white">
+    <div class="container-shell flex flex-col gap-4 py-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+      
+      <!-- Levá část: Copyright a IČO -->
+      <div class="flex flex-col gap-1">
+        <p class="font-medium text-slate-700">&copy; {year} automatizacewebu.cz. Všechna práva vyhrazena.</p>
+        <p class="text-xs text-slate-400">
+          Provozovatel: {siteConfig.ownerName}, IČO: {siteConfig.ico}. 
+          Fyzická osoba zapsaná v živnostenském rejstříku.
+        </p>
+      </div>
+
+      <!-- Pravá část: Tagline -->
+      <p class="font-medium text-slate-600 shrink-0">Bez závazků. Transparentní ceny. Rychlé dodání.</p>
     </div>
   </div>
 </footer>

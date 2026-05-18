@@ -6,66 +6,64 @@ import ServiceCard from "../../components/ServiceCard.astro";
 const services = [
   {
     title: "Oprava diakritiky",
-    description: "AI kontrola a oprava textů ve WordPressu včetně překlepů, slovosledu a sjednocení stylu komunikace.",
+    description: "AI kontrola a oprava textů ve WordPressu. Zbavte se chybějících háčků, překlepů a sjednoťte tón komunikace napříč webem.",
     price: "od 4 900 Kč",
     href: "/sluzby/oprava-diakritiky"
   },
   {
-    title: "AI prolinkování & FAQ",
-    description: "Automatické interní propojování starých článků s novými a generování strukturovaných dat (Schema.org) pro maximální viditelnost ve vyhledávačích.",
-    price: "od 5 900 Kč",
-    href: "/sluzby/ai-prolinkovani-faq"
+    title: "AI prolinkování",
+    description: "Automatické propojování starších článků s novými pro okamžité posílení vnitřního SEO a lepší indexaci na Google.",
+    price: "3 900 Kč",
+    href: "/sluzby/ai-prolinkovani"
   },
   {
     title: "SEO metadata",
-    description: "Doplnění meta popisků a klíčových štítků pro stránky a produkty včetně zápisu do Yoastu, Rank Math nebo AIOSEO.",
+    description: "Automatické doplnění chytlavých meta popisků a klíčových slov přímo do vašeho Yoast, Rank Math nebo AIOSEO pluginu.",
     price: "od 2 000 Kč",
     href: "/sluzby/seo-metadata"
   },
   {
     title: "ALT texty",
-    description: "Automatický popis obrázků pro lepší dohledatelnost, přístupnost a pořádek ve WordPress médiích.",
+    description: "Chytrý vizuální popis obrázků pro lepší dohledatelnost na Googlu a pořádek v galerii médií.",
     price: "od 2 000 Kč",
     href: "/sluzby/alt-texty"
   },
   {
     title: "AI analytik",
-    description: "Pravidelný e-mailový report s návštěvností, klíčovými slovy a doporučením, co zlepšit na webu.",
+    description: "Pravidelný pondělní report do e-mailu. Lidsky psané shrnutí návštěvnosti s konkrétními tipy na zlepšení webu.",
     price: "2 000 Kč / měsíc",
     href: "/sluzby/ai-analytik"
   },
   {
     title: "Propojení systémů",
-    description: "Jedno účelové propojení WordPressu nebo WooCommerce s dalším systémem.",
+    description: "Jednoúčelová integrace. Propojte bezpečně formuláře, objednávky či kontakty z WordPressu s vaším CRM nebo účetnictvím.",
     price: "9 900 Kč",
     href: "/sluzby/propojeni-systemu"
   }
 ];
 
 // Dynamické generování Schema.org pro katalog služeb (ItemList)
-const schemas = [
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Služby automatizace webu",
-    "description": "Přehled hotových služeb pro automatizaci WordPressu, obsahu a dat.",
-    "url": "https://automatizacewebu.cz/sluzby",
-    "itemListElement": services.map((service, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": service.title,
-      "description": service.description,
-      "url": `https://automatizacewebu.cz${service.href}`
-    }))
-  }
-];
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Služby automatizace webu",
+  "description": "Přehled hotových služeb pro automatizaci WordPressu, obsahu a dat.",
+  "url": "https://automatizacewebu.cz/sluzby",
+  "itemListElement": services.map((service, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": service.title,
+    "description": service.description,
+    "url": `https://automatizacewebu.cz${service.href}`
+  }))
+};
 ---
 
 <Layout
   title="Služby automatizace pro WordPress a data | automatizacewebu.cz"
   description="Přehled hotových služeb pro firmy: opravy textů, AI prolinkování, SEO metadata, ALT texty, analytické reporty a integrace."
   canonical="/sluzby"
-  schema={schemas}
+  schema={schema}
 >
   <section class="section-shell bg-hero-grid">
     <div class="container-shell max-w-4xl">
@@ -74,8 +72,8 @@ const schemas = [
         Hotové služby s jasným rozsahem, cenou a rychlým spuštěním.
       </h1>
       <p class="mt-6 text-lg leading-8 text-slate-600">
-        Vyberte si službu podle typu problému. Každá landing page obsahuje detail výstupu, cenový
-        model, FAQ i přímé objednání přes formulář.
+        Vyberte si službu podle typu problému. Každá stránka obsahuje detail výstupu, transparentní cenový
+        model, časté dotazy i přímé objednání přes formulář.
       </p>
     </div>
   </section>
@@ -99,6 +97,6 @@ const schemas = [
     primaryHref="/kontakt"
     primaryLabel="Poslat poptávku"
     secondaryHref="/blog"
-    secondaryLabel="Přečíst blog"
+    secondaryLabel="Inspirujte se na blogu"
   />
 </Layout>
