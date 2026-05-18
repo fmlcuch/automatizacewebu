@@ -1,6 +1,8 @@
 ---
+import CookieBanner from "../components/CookieBanner.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import { siteConfig } from "../data/site";
 import "../styles/global.css";
 
 interface Props {
@@ -23,7 +25,7 @@ const {
   schema = []
 } = Astro.props;
 
-const siteUrl = Astro.site ?? new URL("https://automatizacewebu.cz");
+const siteUrl = Astro.site ?? new URL(siteConfig.siteUrl);
 const canonicalUrl = canonical ? new URL(canonical, siteUrl).toString() : Astro.url.toString();
 const ogImage = new URL(image, siteUrl).toString();
 const schemaList = Array.isArray(schema) ? schema : [schema];
@@ -31,25 +33,27 @@ const schemaList = Array.isArray(schema) ? schema : [schema];
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "automatizacewebu.cz",
+  name: siteConfig.ownerName,
+  alternateName: siteConfig.brandName,
   url: siteUrl.toString(),
   logo: new URL("/favicon.svg", siteUrl).toString(),
-  email: "hello@automatizacewebu.cz",
+  email: siteConfig.email,
   sameAs: []
 };
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "automatizacewebu.cz",
+  name: siteConfig.ownerName,
+  alternateName: siteConfig.brandName,
   image: ogImage,
   url: siteUrl.toString(),
-  email: "hello@automatizacewebu.cz",
+  email: siteConfig.email,
   areaServed: "CZ",
   address: {
     "@type": "PostalAddress",
     addressCountry: "CZ",
-    addressLocality: "Praha"
+    addressLocality: siteConfig.city
   },
   priceRange: "$$",
   description
@@ -97,6 +101,7 @@ const localBusinessSchema = {
       <slot />
     </main>
     <Footer />
+    <CookieBanner />
 
     <div class="fixed inset-x-0 bottom-4 z-40 px-4 sm:hidden">
       <a
@@ -109,6 +114,32 @@ const localBusinessSchema = {
 
     <script is:inline>
       const forms = document.querySelectorAll("[data-async-form]");
+      const cookieBanner = document.querySelector("[data-cookie-banner]");
+      const cookieAccept = document.querySelector("[data-cookie-accept]");
+      const cookieStorageKey = "aw-cookie-banner-dismissed";
+
+      try {
+        const isDismissed = window.localStorage.getItem(cookieStorageKey) === "true";
+        if (!isDismissed && cookieBanner instanceof HTMLElement) {
+          cookieBanner.classList.remove("hidden");
+        }
+      } catch (error) {
+        if (cookieBanner instanceof HTMLElement) {
+          cookieBanner.classList.remove("hidden");
+        }
+      }
+
+      if (cookieAccept instanceof HTMLButtonElement && cookieBanner instanceof HTMLElement) {
+        cookieAccept.addEventListener("click", () => {
+          try {
+            window.localStorage.setItem(cookieStorageKey, "true");
+          } catch (error) {
+            // localStorage may be unavailable in some privacy modes
+          }
+
+          cookieBanner.classList.add("hidden");
+        });
+      }
 
       forms.forEach((form) => {
         const statusNode = form.querySelector("[data-form-status]");

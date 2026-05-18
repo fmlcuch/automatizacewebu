@@ -1,5 +1,6 @@
 ---
 import CTASection from "../components/CTASection.astro";
+import { siteConfig } from "../data/site";
 import Layout from "../layouts/Layout.astro";
 
 const services = [
@@ -33,19 +34,18 @@ const services = [
           <div>
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">E-mail</p>
             <a
-              href="mailto:hello@automatizacewebu.cz"
+              href={`mailto:${siteConfig.email}`}
               class="mt-2 inline-flex text-lg font-semibold text-brand transition hover:text-brand-dark"
             >
-              hello@automatizacewebu.cz
+              {siteConfig.email}
             </a>
           </div>
           <div>
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Fakturační údaje</p>
             <div class="mt-2 space-y-1 text-sm leading-7 text-slate-600">
-              <p>automatizacewebu.cz s.r.o.</p>
-              <p>IČO: 12345678</p>
-              <p>DIČ: CZ12345678</p>
-              <p>Praha, Česká republika</p>
+              <p>{siteConfig.ownerName}</p>
+              <p>IČO: {siteConfig.ico}</p>
+              <p>Sídlo: {siteConfig.city}</p>
             </div>
           </div>
           <p class="rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-slate-600">
@@ -132,6 +132,12 @@ const services = [
           <button type="submit" class="btn-primary w-full" data-loading-label="Odesíláme poptávku...">
             <span data-button-label>Odeslat poptávku</span>
           </button>
+          <p class="text-sm leading-7 text-slate-500">
+            Odesláním formuláře berete na vědomí zpracování osobních údajů podle
+            <a href="/ochrana-osobnich-udaju" class="font-semibold text-brand hover:text-brand-dark">
+              zásad ochrany osobních údajů
+            </a>.
+          </p>
           <p data-form-status aria-live="polite" class="text-sm text-slate-500">
             Ozveme se co nejdříve s doporučením dalšího kroku.
           </p>

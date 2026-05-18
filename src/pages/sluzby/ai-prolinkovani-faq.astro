@@ -1,0 +1,151 @@
+---
+import CTASection from "../../components/CTASection.astro";
+import Layout from "../../layouts/Layout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import ServiceOrderForm from "../../components/ServiceOrderForm.astro";
+const pageUrl = "/sluzby/ai-prolinkovani-faq";
+
+const faq = [
+  {
+    question: "Jaké přístupy budete potřebovat?",
+    answer: "Budeme potřebovat administrátorský přístup do vašeho WordPressu (pro vytvoření aplikačního hesla) a přístup do vašeho Make.com účtu. Pokud Make účet ještě nemáte, pomůžeme vám ho zdarma založit."
+  },
+  {
+    question: "Nerozbije AI strukturu mých článků ve WordPressu?",
+    answer: "Ne. V rámci Make.com scénáře nastavujeme striktní systémové instrukce pro OpenAI, které jí přikazují upravovat pouze čistý text a zachovávat blokovou strukturu (Gutenberg editor). Navíc je možné do scénáře vložit schvalovací krok přes Google Sheets, takže žádná změna neodejde na web bez vašeho vědomí."
+  },
+  {
+    question: "Platí se za provoz služby nějaké měsíční poplatky?",
+    answer: "Ne, naše služba je jednorázová za kompletní nastavení a implementaci celého systému. Samotný provoz pak běží na vašem vlastním Make.com účtu a OpenAI API, kde platíte pouze za skutečně spotřebované tokeny. Pro běžný web se náklady pohybují v řádu jednotek až desítek korun měsíčně."
+  }
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Automatické interní propojování obsahu a SEO schémata",
+  name: "AI prolinkování & FAQ",
+  description:
+    "Automatické propojování starých článků s novými a generování strukturovaných dat (Schema.org) přes Make.com pro maximální viditelnost ve vyhledávačích.",
+  provider: {
+    "@type": "Organization",
+    name: "automatizacewebu.cz",
+    url: "https://automatizacewebu.cz"
+  },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "CZK",
+    price: "5900",
+    url: `https://automatizacewebu.cz${pageUrl}`
+  }
+};
+---
+
+<Layout
+  title="AI interní prolinkování & FAQ schéma pro WordPress | automatizacewebu.cz"
+  description="Automatické propojování starých článků s novými a generování strukturovaných dat (Schema.org) přes Make.com pro maximální viditelnost ve vyhledávačích."
+  canonical={pageUrl}
+  schema={serviceSchema}
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell grid gap-10 lg:grid-cols-[1fr_360px]">
+      <div class="max-w-3xl">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Služba</p>
+        <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          AI prolinkování & FAQ: automatické SEO pro váš blog
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Publikujete nový článek a zapomínáte na zpětné odkazy ze staršího obsahu? Propojte WordPress s Make.com a nechte umělou inteligenci automaticky prolinkovat web a vygenerovat validní FAQ strukturovaná data pro Google.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#objednavka" class="btn-primary">Objednat službu</a>
+          <a href="/kontakt" class="btn-secondary">Nejdřív se zeptat</a>
+        </div>
+      </div>
+
+      <aside class="card-shell p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Cena</p>
+        <div class="mt-5 space-y-4">
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm text-slate-500">Jednorázová implementace</p>
+            <p class="mt-1 text-2xl font-semibold text-slate-900">5 900 Kč</p>
+          </div>
+          <div class="rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-7 text-slate-700">
+            Žádné měsíční poplatky agenturám. Cena zahrnuje kompletní nastavení obou scénářů a otestování na vašem webu.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell grid gap-12 lg:grid-cols-2">
+      <div>
+        <SectionHeading
+          eyebrow="Problém zákazníka"
+          title="Ruční budování interních odkazů a tvorba schémat zabírá hodiny času."
+          description="Kvalitní interní prolinkování posouvá pozice ve vyhledávačích, ale málokdo má čas při každém novém článku procházet desítky starých textů a ručně doplňovat odkazy. Na bohaté úryvky (Rich Snippets) jako FAQ schéma se pak často zapomíná úplně."
+        />
+      </div>
+      <div class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co služba řeší</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Při publikaci článku AI automaticky analyzuje text a vytvoří validní Schema.org kód pro FAQPage.</li>
+          <li>Podle obsahu nového článku prohledá váš starší web a najde nejvhodnější místa pro vložení odkazu.</li>
+          <li>Přirozeně zakomponuje odkaz na nový článek do staršího relevantního textu (správný anchor text).</li>
+          <li>Zpětně posiluje SEO autoritu nových stránek ihned po jejich vydání bez vaší ruční práce.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell bg-surface">
+    <div class="container-shell grid gap-6 lg:grid-cols-2">
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co zákazník dostane</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Dva kompletně nastavené automatizační scénáře v Make.com na vašem účtu.</li>
+          <li>Bezpečné napojení vašeho WordPressu na OpenAI API.</li>
+          <li>Vyladěné systémové prompty, které respektují HTML strukturu vašeho webu.</li>
+          <li>Volitelný schvalovací mezikrok přes Google Sheets pro absolutní kontrolu nad texty.</li>
+        </ul>
+      </article>
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Proč zvolit toto řešení</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Jednorázový náklad – neplatíte žádné drahé měsíční licence za specializované SEO pluginy.</li>
+          <li>Vše běží u vás – celou automatizaci a data vlastníte vy na vašem Make účtu.</li>
+          <li>Rychlé spuštění – kompletní nasazení a otestování funkčnosti na webu realizujeme do 3 pracovních dnů.</li>
+          <li>Bezpečnost na prvním místě – přístupy předáváte přes šifrovaný formulář a pracujeme s omezenými právy API.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <ServiceOrderForm serviceName="AI prolinkování & FAQ" sourcePage={pageUrl} />
+
+  <section class="section-shell">
+    <div class="container-shell">
+      <SectionHeading eyebrow="FAQ" title="Časté otázky" />
+      <div class="mt-10 space-y-4">
+        {faq.map((item) => (
+          <details class="card-shell p-6">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-base leading-7 text-slate-600">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Chcete automaticky vytěžit maximum SEO autority z každého článku?"
+    description="Služba je ideální pro firemní blogy, magazíny a e-shopy s obsahovým marketingem, které chtějí odstranit rutinní práci a okamžitě zlepšit viditelnost na Google."
+    primaryHref="#objednavka"
+    primaryLabel="Objednat službu"
+    secondaryHref="/kontakt"
+    secondaryLabel="Položit dotaz"
+  />
+</Layout>

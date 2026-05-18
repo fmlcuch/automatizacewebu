@@ -1,9 +1,10 @@
 ---
+import { siteConfig } from "../data/site";
 import Layout from "../layouts/Layout.astro";
 
 const nextSteps = [
   "Vytvořte nám uživatelský účet ve WordPressu s oprávněním odpovídajícím objednané službě.",
-  "Přístupy pošlete přes níže uvedený zabezpečený formulář.",
+  "Pošlete nám přístup přes dočasný účet nebo jednorázový odkaz níže v zabezpečeném formuláři.",
   "Po převzetí podkladů zahájíme práci a dáme vám vědět termín dodání."
 ];
 ---
@@ -49,7 +50,7 @@ const nextSteps = [
         <h2 class="text-3xl font-bold text-slate-900">Bezpečné předání přístupů</h2>
         <p class="mt-4 text-base leading-7 text-slate-600">
           Formulář slouží pro předání přístupů k WordPressu, WooCommerce nebo doplňujícím systémům.
-          Pokud potřebujete poradit s oprávněními, napište nám.
+          Doporučujeme použít dočasný účet nebo jednorázový přístupový odkaz, nikoli hlavní heslo správce.
         </p>
 
         <form
@@ -90,12 +91,12 @@ const nextSteps = [
           </div>
 
           <div>
-            <label for="wpUsername" class="mb-2 block text-sm font-medium text-slate-700">Uživatelské jméno</label>
+            <label for="wpUsername" class="mb-2 block text-sm font-medium text-slate-700">Název dočasného účtu</label>
             <input id="wpUsername" name="wpUsername" type="text" class="field-shell" required />
           </div>
 
           <div>
-            <label for="wpPassword" class="mb-2 block text-sm font-medium text-slate-700">Heslo nebo jednorázový odkaz</label>
+            <label for="wpPassword" class="mb-2 block text-sm font-medium text-slate-700">Jednorázový odkaz nebo heslo k dočasnému účtu</label>
             <input id="wpPassword" name="wpPassword" type="text" class="field-shell" required />
           </div>
 
@@ -112,6 +113,12 @@ const nextSteps = [
           <button type="submit" class="btn-primary w-full" data-loading-label="Odesíláme přístupy...">
             <span data-button-label>Odeslat přístupy</span>
           </button>
+          <p class="text-sm leading-7 text-slate-500">
+            Odesláním formuláře berete na vědomí zpracování osobních údajů podle
+            <a href="/ochrana-osobnich-udaju" class="font-semibold text-brand hover:text-brand-dark">
+              zásad ochrany osobních údajů
+            </a>.
+          </p>
           <p data-form-status aria-live="polite" class="text-sm text-slate-500">
             Po odeslání formuláře přístupy bezpečně převezmeme a navážeme dalším krokem.
           </p>
@@ -119,8 +126,8 @@ const nextSteps = [
 
         <div class="mt-8 rounded-2xl bg-slate-50 p-5 text-sm leading-7 text-slate-600">
           Pokud vám formulář nevyhovuje, napište nám na
-          <a href="mailto:hello@automatizacewebu.cz" class="font-semibold text-brand hover:text-brand-dark">
-            hello@automatizacewebu.cz
+          <a href={`mailto:${siteConfig.email}`} class="font-semibold text-brand hover:text-brand-dark">
+            {siteConfig.email}
           </a>
           a domluvíme bezpečný alternativní postup.
         </div>

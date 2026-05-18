@@ -1,0 +1,32 @@
+---
+const policyHref = "/ochrana-osobnich-udaju";
+---
+
+<div
+  data-cookie-banner
+  class="fixed inset-x-0 bottom-0 z-50 hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Informace o cookies"
+>
+  <div class="container-shell flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Cookies</p>
+      <p class="mt-2 text-sm leading-7 text-slate-600">
+        Tento web používá pouze nezbytně nutné cookies a lokální úložiště pro správné fungování
+        navigace, formulářů a uložení volby této lišty. Nepoužíváme analytické ani marketingové cookies.
+        Více v
+        <a href={policyHref} class="font-semibold text-brand hover:text-brand-dark">
+          zásadách ochrany osobních údajů
+        </a>.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a href={policyHref} class="btn-secondary text-center">Zobrazit zásady</a>
+      <button type="button" class="btn-primary" data-cookie-accept>
+        Rozumím
+      </button>
+    </div>
+  </div>
+</div>

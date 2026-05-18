@@ -1,0 +1,149 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { siteConfig } from "../data/site";
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Zásady ochrany osobních údajů",
+  url: `${siteConfig.siteUrl}/ochrana-osobnich-udaju`
+};
+---
+
+<Layout
+  title="Zásady ochrany osobních údajů | automatizacewebu.cz"
+  description="Informace o zpracování osobních údajů, kontaktních formulářích a používání cookies na webu automatizacewebu.cz."
+  canonical="/ochrana-osobnich-udaju"
+  schema={pageSchema}
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell max-w-4xl">
+      <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Právní informace</p>
+      <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+        Zásady ochrany osobních údajů
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        Na této stránce najdete informace o tom, jak na webu automatizacewebu.cz pracujeme s osobními údaji,
+        jak fungují kontaktní a objednávkové formuláře a jak používáme cookies.
+      </p>
+      <p class="mt-4 text-sm text-slate-500">Poslední aktualizace: 18. 5. 2026</p>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell max-w-4xl space-y-12">
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Správce údajů" title="Kdo vaše údaje zpracovává" />
+        <div class="mt-6 space-y-2 text-base leading-8 text-slate-600">
+          <p><strong class="text-slate-900">{siteConfig.ownerName}</strong></p>
+          <p>IČO: {siteConfig.ico}</p>
+          <p>Sídlo: {siteConfig.city}</p>
+          <p>
+            E-mail:
+            <a href={`mailto:${siteConfig.email}`} class="font-semibold text-brand hover:text-brand-dark">
+              {siteConfig.email}
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Rozsah údajů" title="Jaké osobní údaje můžeme zpracovávat" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700 prose-li:text-slate-700">
+          <p>
+            Zpracováváme zejména údaje, které nám sami poskytnete prostřednictvím kontaktního,
+            objednávkového nebo navazujícího formuláře.
+          </p>
+          <ul>
+            <li>jméno a kontaktní e-mail,</li>
+            <li>adresu webu a informace o poptávané službě,</li>
+            <li>obsah zprávy a další údaje, které do formuláře sami doplníte,</li>
+            <li>v případě následného předání přístupů také údaje nutné k realizaci objednané služby.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Účely a právní základ" title="Proč údaje zpracováváme" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700 prose-li:text-slate-700">
+          <ul>
+            <li>vyřízení vaší poptávky nebo objednávky služby,</li>
+            <li>navazující komunikace k realizaci služby,</li>
+            <li>ochrana našich práv a evidence komunikace po nezbytnou dobu.</li>
+          </ul>
+          <p>
+            Právním základem je zejména jednání o uzavření smlouvy a plnění smlouvy, případně náš oprávněný zájem
+            na vedení obchodní komunikace a ochraně našich práv.
+          </p>
+        </div>
+      </section>
+
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Příjemci údajů" title="Kdo může mít k údajům přístup" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700 prose-li:text-slate-700">
+          <p>
+            Údaje z formulářů mohou být zpracovávány prostřednictvím technických dodavatelů, které používáme
+            pro provoz webu a příjem formulářů.
+          </p>
+          <ul>
+            <li>GitHub Pages jako hosting statického webu,</li>
+            <li>Make.com jako nástroj pro příjem a zpracování formulářových odeslání.</li>
+          </ul>
+          <p>
+            Údaje nepředáváme třetím stranám pro jejich vlastní marketingové účely.
+          </p>
+        </div>
+      </section>
+
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Doba uchování" title="Jak dlouho údaje uchováváme" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700">
+          <p>
+            Osobní údaje uchováváme po dobu nezbytnou pro vyřízení poptávky, realizaci služby a navazující komunikaci.
+            Pokud právní předpisy vyžadují delší uchování některých údajů, řídíme se těmito povinnostmi.
+          </p>
+        </div>
+      </section>
+
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Cookies" title="Jak používáme cookies a lokální úložiště" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700 prose-li:text-slate-700">
+          <p>
+            Tento web používá pouze nezbytně nutné technické prostředky pro fungování uživatelského rozhraní,
+            formulářů a uložení volby cookie lišty. Nepoužíváme analytické ani marketingové cookies.
+          </p>
+          <ul>
+            <li>nezbytné technické cookies nebo lokální úložiště pro fungování rozhraní,</li>
+            <li>uložení informace, že jste zavřeli cookie lištu,</li>
+            <li>žádné reklamní, remarketingové ani měřicí skripty třetích stran.</li>
+          </ul>
+          <p>
+            Pokud v budoucnu přidáme analytické nebo marketingové nástroje, upravíme tuto stránku i cookie lištu
+            tak, aby bylo možné takové cookies aktivovat pouze na základě vašeho souhlasu.
+          </p>
+        </div>
+      </section>
+
+      <section class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <SectionHeading eyebrow="Vaše práva" title="Jaká máte práva" />
+        <div class="mt-6 prose prose-lg max-w-none prose-p:text-slate-700 prose-li:text-slate-700">
+          <p>Podle relevantních právních předpisů můžete uplatnit zejména tato práva:</p>
+          <ul>
+            <li>právo na přístup k osobním údajům,</li>
+            <li>právo na opravu nepřesných údajů,</li>
+            <li>právo na výmaz nebo omezení zpracování, pokud jsou splněny zákonné podmínky,</li>
+            <li>právo vznést námitku proti zpracování,</li>
+            <li>právo podat stížnost u Úřadu pro ochranu osobních údajů.</li>
+          </ul>
+          <p>
+            Pokud chcete některé z těchto práv uplatnit, napište nám na
+            <a href={`mailto:${siteConfig.email}`} class="font-semibold text-brand hover:text-brand-dark">
+              {siteConfig.email}
+            </a>.
+          </p>
+        </div>
+      </section>
+    </div>
+  </section>
+</Layout>

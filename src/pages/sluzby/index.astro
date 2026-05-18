@@ -11,6 +11,12 @@ const services = [
     href: "/sluzby/oprava-diakritiky"
   },
   {
+    title: "AI prolinkování & FAQ",
+    description: "Automatické interní propojování starých článků s novými a generování strukturovaných dat (Schema.org) pro maximální viditelnost ve vyhledávačích.",
+    price: "od 5 900 Kč",
+    href: "/sluzby/ai-prolinkovani-faq"
+  },
+  {
     title: "SEO metadata",
     description: "Doplnění meta popisků a klíčových štítků pro stránky a produkty včetně zápisu do Yoastu, Rank Math nebo AIOSEO.",
     price: "od 2 000 Kč",
@@ -30,17 +36,36 @@ const services = [
   },
   {
     title: "Propojení systémů",
-    description: "Jedno účelové propojení WordPressu nebo WooCommerce s dalším systémem přes Make.com.",
+    description: "Jedno účelové propojení WordPressu nebo WooCommerce s dalším systémem.",
     price: "9 900 Kč",
     href: "/sluzby/propojeni-systemu"
+  }
+];
+
+// Dynamické generování Schema.org pro katalog služeb (ItemList)
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Služby automatizace webu",
+    "description": "Přehled hotových služeb pro automatizaci WordPressu, obsahu a dat.",
+    "url": "https://automatizacewebu.cz/sluzby",
+    "itemListElement": services.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": service.title,
+      "description": service.description,
+      "url": `https://automatizacewebu.cz${service.href}`
+    }))
   }
 ];
 ---
 
 <Layout
   title="Služby automatizace pro WordPress a data | automatizacewebu.cz"
-  description="Přehled hotových služeb pro firmy: opravy textů, SEO metadata, ALT texty, analytické reporty a integrace WordPressu přes Make.com."
+  description="Přehled hotových služeb pro firmy: opravy textů, AI prolinkování, SEO metadata, ALT texty, analytické reporty a integrace."
   canonical="/sluzby"
+  schema={schemas}
 >
   <section class="section-shell bg-hero-grid">
     <div class="container-shell max-w-4xl">
@@ -57,6 +82,9 @@ const services = [
 
   <section class="section-shell">
     <div class="container-shell">
+      {/* Skrytý nadpis pro správnou sémantickou strukturu osnovy (SEO a přístupnost) */}
+      <h2 class="sr-only">Katalog nabízených automatizací</h2>
+      
       <div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
         {services.map((service) => (
           <ServiceCard {...service} />

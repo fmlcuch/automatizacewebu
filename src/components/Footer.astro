@@ -1,16 +1,19 @@
 ---
+import { siteConfig } from "../data/site";
+
 const year = new Date().getFullYear();
 
 const navItems = [
   { href: "/", label: "Domů" },
   { href: "/sluzby", label: "Služby" },
   { href: "/blog", label: "Blog" },
-  { href: "/kontakt", label: "Kontakt" }
+  { href: "/kontakt", label: "Kontakt" },
+  { href: "/ochrana-osobnich-udaju", label: "Zásady ochrany osobních údajů" }
 ];
 ---
 
 <footer class="border-t border-slate-200 bg-slate-50">
-  <div class="container-shell grid gap-10 py-14 md:grid-cols-[1.2fr_0.8fr_1fr]">
+  <div class="container-shell grid gap-10 py-14 md:grid-cols-[1.1fr_0.8fr_1fr]">
     <div class="space-y-4">
       <div class="flex items-center gap-3">
         <span
@@ -45,14 +48,13 @@ const navItems = [
     <div class="space-y-4">
       <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Fakturační údaje</p>
       <div class="space-y-2 text-sm leading-7 text-slate-600">
-        <p>automatizacewebu.cz s.r.o.</p>
-        <p>IČO: 12345678</p>
-        <p>DIČ: CZ12345678</p>
-        <p>Praha, Česká republika</p>
+        <p>{siteConfig.ownerName}</p>
+        <p>IČO: {siteConfig.ico}</p>
+        <p>Sídlo: {siteConfig.city}</p>
         <p>
           E-mail:
-          <a href="mailto:hello@automatizacewebu.cz" class="text-brand hover:text-brand-dark">
-            hello@automatizacewebu.cz
+          <a href={`mailto:${siteConfig.email}`} class="text-brand hover:text-brand-dark">
+            {siteConfig.email}
           </a>
         </p>
       </div>
@@ -65,7 +67,7 @@ const navItems = [
 
   <div class="border-t border-slate-200">
     <div class="container-shell flex flex-col gap-2 py-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-      <p>&copy; {year} automatizacewebu.cz. Všechna práva vyhrazena.</p>
+      <p>&copy; {year} {siteConfig.ownerName}. Všechna práva vyhrazena.</p>
       <p>Bez závazků. Transparentní ceny. Rychlé dodání.</p>
     </div>
   </div>

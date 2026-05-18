@@ -112,6 +112,7 @@ Najdete ho v těchto souborech:
 - `robots.txt` je v `public/robots.txt`
 - OG obrázek je v `public/og-image.jpg`
 - Navigace, footer a sticky mobile CTA jsou v `src/components/`
+- Zásady ochrany osobních údajů jsou na `src/pages/ochrana-osobnich-udaju.astro`
 
 ## Obsah formulářů
 
