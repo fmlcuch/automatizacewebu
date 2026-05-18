@@ -1,0 +1,193 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonical?: string;
+  type?: "website" | "article";
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const {
+  title,
+  description,
+  image = "/og-image.jpg",
+  canonical,
+  type = "website",
+  noindex = false,
+  schema = []
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://automatizacewebu.cz");
+const canonicalUrl = canonical ? new URL(canonical, siteUrl).toString() : Astro.url.toString();
+const ogImage = new URL(image, siteUrl).toString();
+const schemaList = Array.isArray(schema) ? schema : [schema];
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "automatizacewebu.cz",
+  url: siteUrl.toString(),
+  logo: new URL("/favicon.svg", siteUrl).toString(),
+  email: "hello@automatizacewebu.cz",
+  sameAs: []
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "automatizacewebu.cz",
+  image: ogImage,
+  url: siteUrl.toString(),
+  email: "hello@automatizacewebu.cz",
+  areaServed: "CZ",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "CZ",
+    addressLocality: "Praha"
+  },
+  priceRange: "$$",
+  description
+};
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta property="og:locale" content="cs_CZ" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="automatizacewebu.cz" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="theme-color" content="#2563EB" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    {schemaList.map((item) => (
+      <script type="application/ld+json" set:html={JSON.stringify(item)} />
+    ))}
+  </head>
+  <body class="min-h-screen bg-white">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <div class="fixed inset-x-0 bottom-4 z-40 px-4 sm:hidden">
+      <a
+        href="/kontakt"
+        class="btn-primary mx-auto flex max-w-sm justify-center gap-2 shadow-lg shadow-blue-200/60"
+      >
+        Nezávazně poptat
+      </a>
+    </div>
+
+    <script is:inline>
+      const forms = document.querySelectorAll("[data-async-form]");
+
+      forms.forEach((form) => {
+        const statusNode = form.querySelector("[data-form-status]");
+        const button = form.querySelector("[type='submit']");
+        const buttonLabel = button?.querySelector("[data-button-label]");
+        const loadingLabel = button?.dataset.loadingLabel ?? "Odesíláme...";
+        const defaultLabel = buttonLabel?.textContent ?? button?.textContent ?? "Odeslat";
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const honeypotName = form.dataset.honeypot;
+          if (honeypotName) {
+            const honeypotField = form.querySelector(`[name="${honeypotName}"]`);
+            if (honeypotField instanceof HTMLInputElement && honeypotField.value.trim() !== "") {
+              return;
+            }
+          }
+
+          const formData = new FormData(form);
+
+          if (button instanceof HTMLButtonElement) {
+            button.disabled = true;
+          }
+
+          if (buttonLabel) {
+            buttonLabel.textContent = loadingLabel;
+          } else if (button instanceof HTMLButtonElement) {
+            button.textContent = loadingLabel;
+          }
+
+          if (statusNode) {
+            statusNode.textContent = "Odesíláme formulář. Chvilku prosím.";
+            statusNode.className = "mt-4 text-sm text-slate-600";
+          }
+
+          try {
+            const response = await fetch(form.action, {
+              method: form.method || "POST",
+              body: formData,
+              headers: {
+                Accept: "application/json"
+              }
+            });
+
+            if (!response.ok) {
+              throw new Error("Form submit failed");
+            }
+
+            const redirectUrl = form.dataset.successRedirect;
+            if (statusNode) {
+              statusNode.textContent = "Formulář byl úspěšně odeslán.";
+              statusNode.className = "mt-4 text-sm font-medium text-emerald-600";
+            }
+
+            form.reset();
+
+            if (redirectUrl) {
+              window.location.href = redirectUrl;
+            }
+          } catch (error) {
+            if (statusNode) {
+              statusNode.textContent =
+                "Odeslání se nepodařilo. Zkuste to prosím znovu nebo nám napište na e-mail.";
+              statusNode.className = "mt-4 text-sm font-medium text-rose-600";
+            }
+          } finally {
+            if (button instanceof HTMLButtonElement) {
+              button.disabled = false;
+            }
+
+            if (buttonLabel) {
+              buttonLabel.textContent = defaultLabel;
+            } else if (button instanceof HTMLButtonElement) {
+              button.textContent = defaultLabel;
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+---
+import CTASection from "../../components/CTASection.astro";
+import Layout from "../../layouts/Layout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import ServiceOrderForm from "../../components/ServiceOrderForm.astro";
+const pageUrl = "/sluzby/alt-texty";
+
+const faq = [
+  {
+    question: "Jaké obrázky umíte popsat?",
+    answer: "Typicky produktové fotografie, ilustrační obrázky, bannerové vizuály i běžné fotografie v galerii WordPressu."
+  },
+  {
+    question: "Zapíšete ALT text rovnou do WordPressu?",
+    answer: "Ano. Výstup standardně zapisujeme přímo do pole Alternativní text ve WordPress knihovně médií."
+  },
+  {
+    question: "Je v ceně i práce s klíčovými slovy?",
+    answer: "Ano. Popisy nejsou generické. Cílem je vytvořit relevantní ALT texty, které odpovídají obsahu stránky a dávají smysl i z pohledu dohledatelnosti."
+  }
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Automatické doplnění ALT textů ve WordPressu",
+  name: "ALT texty",
+  description:
+    "Vision AI analyzuje obrázky ve WordPressu a doplní relevantní alternativní texty přímo do knihovny médií.",
+  provider: {
+    "@type": "Organization",
+    name: "automatizacewebu.cz",
+    url: "https://automatizacewebu.cz"
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "CZK",
+    lowPrice: "2000",
+    url: `https://automatizacewebu.cz${pageUrl}`
+  }
+};
+---
+
+<Layout
+  title="ALT texty pro WordPress obrázky | automatizacewebu.cz"
+  description="Doplníme relevantní ALT texty do WordPress galerie pomocí Vision AI a zapíšeme je přímo do knihovny médií."
+  canonical={pageUrl}
+  schema={serviceSchema}
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell grid gap-10 lg:grid-cols-[1fr_360px]">
+      <div class="max-w-3xl">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Služba</p>
+        <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          ALT texty pro WordPress galerii bez ručního dopisování
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Google nevidí obrázky, vidí jejich popisky. Pokud je máte prázdné nebo pojmenované jako
+          IMG_4829.jpg, přicházíte o zákazníky i lepší přístupnost.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#objednavka" class="btn-primary">Objednat službu</a>
+          <a href="/kontakt" class="btn-secondary">Nejdřív se zeptat</a>
+        </div>
+      </div>
+
+      <aside class="card-shell p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Cena</p>
+        <div class="mt-5 space-y-4">
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm text-slate-500">Jednotková cena</p>
+            <p class="mt-1 text-2xl font-semibold text-slate-900">4 Kč / obrázek</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm text-slate-500">Příklad</p>
+            <p class="mt-1 text-lg font-semibold text-slate-900">1 000 obrázků = 4 000 Kč</p>
+          </div>
+          <div class="rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-7 text-slate-700">
+            Minimální hodnota objednávky: <strong>2 000 Kč</strong>.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell grid gap-12 lg:grid-cols-2">
+      <div>
+        <SectionHeading
+          eyebrow="Problém zákazníka"
+          title="Galerie je plná obrázků, ale WordPress u nich nemá využitelný ALT text."
+          description="Ruční doplňování je zdlouhavé a často končí u technických názvů souborů. Výsledek nepomáhá ani SEO, ani přístupnosti."
+        />
+      </div>
+      <div class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co služba řeší</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Vision AI rozpozná, co je na obrázku skutečně zobrazené.</li>
+          <li>Vytvoří relevantní alternativní text s ohledem na obsah a kontext webu.</li>
+          <li>Zapisuje výstupy přímo do políčka Alternativní text ve WordPressu.</li>
+          <li>Ušetří hodiny ručního dopisování ve správě médií.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell bg-surface">
+    <div class="container-shell grid gap-6 lg:grid-cols-2">
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co zákazník dostane</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Automatickou analýzu celé galerie nebo vybraného vzorku obrázků.</li>
+          <li>Relevantní ALT texty zapsané přímo do WordPressu.</li>
+          <li>Popisy použitelné pro dohledatelnost i přístupnost.</li>
+          <li>Jasnou cenu podle počtu zpracovaných obrázků.</li>
+        </ul>
+      </article>
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Trust prvky</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Transparentní cena po kusech bez dalších příplatků.</li>
+          <li>Bez závazků a bez průběžných licencí.</li>
+          <li>Rychlé dávkové zpracování velkých galerií.</li>
+          <li>AI kredity a provoz jsou zahrnuté v ceně služby.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <ServiceOrderForm serviceName="ALT texty" sourcePage={pageUrl} />
+
+  <section class="section-shell">
+    <div class="container-shell">
+      <SectionHeading eyebrow="FAQ" title="Časté otázky" />
+      <div class="mt-10 space-y-4">
+        {faq.map((item) => (
+          <details class="card-shell p-6">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-base leading-7 text-slate-600">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Máte neudržovanou galerii a chcete ji rychle vyčistit?"
+    description="Pošlete nám objem médií nebo typ webu a potvrdíme, zda je vhodnější kompletní dávka nebo pilotní vzorek."
+    primaryHref="#objednavka"
+    primaryLabel="Objednat službu"
+    secondaryHref="/kontakt"
+    secondaryLabel="Položit dotaz"
+  />
+</Layout>

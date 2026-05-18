@@ -1,0 +1,76 @@
+---
+import CTASection from "../../components/CTASection.astro";
+import Layout from "../../layouts/Layout.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+
+const services = [
+  {
+    title: "Oprava diakritiky",
+    description: "AI kontrola a oprava textů ve WordPressu včetně překlepů, slovosledu a sjednocení stylu komunikace.",
+    price: "od 4 900 Kč",
+    href: "/sluzby/oprava-diakritiky"
+  },
+  {
+    title: "SEO metadata",
+    description: "Doplnění meta popisků a klíčových štítků pro stránky a produkty včetně zápisu do Yoastu, Rank Math nebo AIOSEO.",
+    price: "od 2 000 Kč",
+    href: "/sluzby/seo-metadata"
+  },
+  {
+    title: "ALT texty",
+    description: "Automatický popis obrázků pro lepší dohledatelnost, přístupnost a pořádek ve WordPress médiích.",
+    price: "od 2 000 Kč",
+    href: "/sluzby/alt-texty"
+  },
+  {
+    title: "AI analytik",
+    description: "Pravidelný e-mailový report s návštěvností, klíčovými slovy a doporučením, co zlepšit na webu.",
+    price: "2 000 Kč / měsíc",
+    href: "/sluzby/ai-analytik"
+  },
+  {
+    title: "Propojení systémů",
+    description: "Jedno účelové propojení WordPressu nebo WooCommerce s dalším systémem přes Make.com.",
+    price: "9 900 Kč",
+    href: "/sluzby/propojeni-systemu"
+  }
+];
+---
+
+<Layout
+  title="Služby automatizace pro WordPress a data | automatizacewebu.cz"
+  description="Přehled hotových služeb pro firmy: opravy textů, SEO metadata, ALT texty, analytické reporty a integrace WordPressu přes Make.com."
+  canonical="/sluzby"
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell max-w-4xl">
+      <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Služby</p>
+      <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+        Hotové služby s jasným rozsahem, cenou a rychlým spuštěním.
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        Vyberte si službu podle typu problému. Každá landing page obsahuje detail výstupu, cenový
+        model, FAQ i přímé objednání přes formulář.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell">
+      <div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+        {services.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Nejste si jistí, kterou službu zvolit?"
+    description="Napište nám stručně, co vás dnes na webu zdržuje. Doporučíme nejvhodnější variantu nebo kombinaci kroků."
+    primaryHref="/kontakt"
+    primaryLabel="Poslat poptávku"
+    secondaryHref="/blog"
+    secondaryLabel="Přečíst blog"
+  />
+</Layout>

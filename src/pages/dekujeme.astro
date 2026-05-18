@@ -1,0 +1,142 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const nextSteps = [
+  "Vytvořte nám uživatelský účet ve WordPressu s oprávněním odpovídajícím objednané službě.",
+  "Přístupy pošlete přes níže uvedený zabezpečený formulář.",
+  "Po převzetí podkladů zahájíme práci a dáme vám vědět termín dodání."
+];
+---
+
+<Layout
+  title="Děkujeme za objednávku | automatizacewebu.cz"
+  description="Děkujeme za objednávku. Přijali jsme váš požadavek a navážeme potvrzením dalšího postupu i případným předáním přístupů."
+  canonical="/dekujeme"
+  noindex={true}
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+      <div class="max-w-2xl">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Děkujeme</p>
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          Objednávka byla úspěšně odeslána.
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Děkujeme. Přijali jsme váš požadavek a navážeme potvrzením dalšího postupu. Pokud chcete
+          urychlit zahájení práce, můžete nám už teď poslat přístupy přes níže uvedený zabezpečený formulář.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="/kontakt" class="btn-primary">Kontaktovat nás</a>
+          <a href="/sluzby" class="btn-secondary">Zpět na služby</a>
+        </div>
+
+        <div class="mt-8 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Co bude následovat</p>
+          <ol class="mt-5 space-y-4">
+            {nextSteps.map((step, index) => (
+              <li class="flex items-start gap-4">
+                <span class="mt-0.5 inline-flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-soft text-sm font-semibold text-brand">
+                  {index + 1}
+                </span>
+                <span class="text-base leading-7 text-slate-600">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <div class="card-shell p-6 md:p-8">
+        <h2 class="text-3xl font-bold text-slate-900">Bezpečné předání přístupů</h2>
+        <p class="mt-4 text-base leading-7 text-slate-600">
+          Formulář slouží pro předání přístupů k WordPressu, WooCommerce nebo doplňujícím systémům.
+          Pokud potřebujete poradit s oprávněními, napište nám.
+        </p>
+
+        <form
+          action="https://hook.eu1.make.com/example"
+          method="POST"
+          class="mt-8 space-y-5"
+          data-async-form
+          data-honeypot="fax"
+        >
+          <input type="hidden" name="formType" value="access-handoff" />
+          <input type="hidden" name="sourcePage" value="/dekujeme" />
+
+          <div class="hidden">
+            <label for="fax">Fax</label>
+            <input id="fax" name="fax" type="text" autocomplete="off" tabindex="-1" />
+          </div>
+
+          <div>
+            <label for="companyName" class="mb-2 block text-sm font-medium text-slate-700">Firma</label>
+            <input id="companyName" name="companyName" type="text" class="field-shell" required />
+          </div>
+
+          <div>
+            <label for="contactEmail" class="mb-2 block text-sm font-medium text-slate-700">Kontaktní e-mail</label>
+            <input id="contactEmail" name="contactEmail" type="email" class="field-shell" required inputmode="email" />
+          </div>
+
+          <div>
+            <label for="wpUrl" class="mb-2 block text-sm font-medium text-slate-700">Adresa WordPressu</label>
+            <input
+              id="wpUrl"
+              name="wpUrl"
+              type="url"
+              class="field-shell"
+              placeholder="https://www.vasedomena.cz/wp-admin"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="wpUsername" class="mb-2 block text-sm font-medium text-slate-700">Uživatelské jméno</label>
+            <input id="wpUsername" name="wpUsername" type="text" class="field-shell" required />
+          </div>
+
+          <div>
+            <label for="wpPassword" class="mb-2 block text-sm font-medium text-slate-700">Heslo nebo jednorázový odkaz</label>
+            <input id="wpPassword" name="wpPassword" type="text" class="field-shell" required />
+          </div>
+
+          <div>
+            <label for="handoffMessage" class="mb-2 block text-sm font-medium text-slate-700">Poznámka</label>
+            <textarea
+              id="handoffMessage"
+              name="handoffMessage"
+              class="field-shell min-h-36"
+              placeholder="Doplňte prosím objednanou službu, specifická omezení nebo další systém, ke kterému potřebujeme přístup."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full" data-loading-label="Odesíláme přístupy...">
+            <span data-button-label>Odeslat přístupy</span>
+          </button>
+          <p data-form-status aria-live="polite" class="text-sm text-slate-500">
+            Po odeslání formuláře přístupy bezpečně převezmeme a navážeme dalším krokem.
+          </p>
+        </form>
+
+        <div class="mt-8 rounded-2xl bg-slate-50 p-5 text-sm leading-7 text-slate-600">
+          Pokud vám formulář nevyhovuje, napište nám na
+          <a href="mailto:hello@automatizacewebu.cz" class="font-semibold text-brand hover:text-brand-dark">
+            hello@automatizacewebu.cz
+          </a>
+          a domluvíme bezpečný alternativní postup.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell">
+        <div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-8">
+          <h2 class="text-3xl font-bold text-slate-900">Co očekávat dál</h2>
+          <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
+          Jakmile objednávku zpracujeme, potvrdíme převzetí a navážeme konkrétním termínem dodání.
+          U standardních služeb obvykle začínáme pracovat ihned po kontrole podkladů a přístupů.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

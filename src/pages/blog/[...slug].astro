@@ -1,0 +1,191 @@
+---
+import { getCollection, render } from "astro:content";
+import BlogCard from "../../components/BlogCard.astro";
+import CTASection from "../../components/CTASection.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const allPosts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const relatedPosts = allPosts
+  .filter(
+    (item) =>
+      item.slug !== post.slug &&
+      item.data.tags.some((tag) => post.data.tags.includes(tag))
+  )
+  .slice(0, 2);
+
+const fallbackPosts = allPosts.filter((item) => item.slug !== post.slug).slice(0, 2);
+const visibleRelatedPosts = relatedPosts.length > 0 ? relatedPosts : fallbackPosts;
+
+const breadcrumbs = [
+  { href: "/", label: "Domů" },
+  { href: "/blog", label: "Blog" },
+  { href: `/blog/${post.slug}`, label: post.data.title }
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.publishDate.toISOString(),
+  author: {
+    "@type": "Organization",
+    name: post.data.author
+  },
+  image: [`https://automatizacewebu.cz${post.data.image}`],
+  mainEntityOfPage: `https://automatizacewebu.cz/blog/${post.slug}`,
+  publisher: {
+    "@type": "Organization",
+    name: "automatizacewebu.cz",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://automatizacewebu.cz/favicon.svg"
+    }
+  }
+};
+
+const formattedDate = post.data.publishDate.toLocaleDateString("cs-CZ", {
+  day: "numeric",
+  month: "long",
+  year: "numeric"
+});
+---
+
+<Layout
+  title={`${post.data.title} | Blog | automatizacewebu.cz`}
+  description={post.data.description}
+  canonical={`/blog/${post.slug}`}
+  image={post.data.image}
+  type="article"
+  schema={articleSchema}
+>
+  <article>
+    <section class="section-shell bg-hero-grid">
+      <div class="container-shell max-w-5xl">
+        <nav aria-label="Breadcrumb" class="mb-8">
+          <ol class="flex flex-wrap items-center gap-2 text-sm text-slate-500">
+            {breadcrumbs.map((crumb, index) => (
+              <>
+                <li>
+                  {index === breadcrumbs.length - 1 ? (
+                    <span aria-current="page" class="text-slate-700">{crumb.label}</span>
+                  ) : (
+                    <a href={crumb.href} class="transition hover:text-brand">
+                      {crumb.label}
+                    </a>
+                  )}
+                </li>
+                {index < breadcrumbs.length - 1 && <li aria-hidden="true">/</li>}
+              </>
+            ))}
+          </ol>
+        </nav>
+
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Článek</p>
+          <h1 class="mt-5 text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+            {post.data.title}
+          </h1>
+          <p class="mt-6 text-lg leading-8 text-slate-600">{post.data.description}</p>
+          <div class="mt-6 flex flex-wrap gap-4 text-sm text-slate-500">
+            <span>{formattedDate}</span>
+            <span>•</span>
+            <span>{post.data.author}</span>
+          </div>
+        </div>
+
+        <div class="mt-10 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+          <img
+            src={post.data.image}
+            alt={post.data.imageAlt}
+            width="1600"
+            height="900"
+            class="aspect-[16/9] w-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="container-shell grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div class="prose prose-lg max-w-none prose-headings:text-slate-900 prose-p:text-slate-700 prose-a:text-brand prose-strong:text-slate-900">
+          <Content />
+        </div>
+
+        <aside class="space-y-6 lg:sticky lg:top-28 lg:self-start">
+          <div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Témata</p>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {post.data.tags.map((tag) => (
+                <li class="rounded-full bg-white px-3 py-2 text-sm text-slate-600 shadow-sm">
+                  #{tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="rounded-[2rem] border border-blue-100 bg-blue-50 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Poptávka</p>
+            <h2 class="mt-4 text-2xl font-semibold text-slate-900">Chcete podobnou automatizaci i pro váš web?</h2>
+            <p class="mt-4 text-base leading-7 text-slate-600">
+              Napište nám, kde vás dnes zdržuje ruční práce. Navrhneme nejkratší cestu k nasazení.
+            </p>
+            <a href="/kontakt" class="btn-primary mt-6">
+              Poptat automatizaci
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-shell bg-surface">
+      <div class="container-shell">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Související články</p>
+            <h2 class="mt-4 text-3xl font-bold text-slate-900">Pokračujte dalším praktickým textem.</h2>
+          </div>
+          <a href="/blog" class="btn-secondary">Všechny články</a>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
+          {visibleRelatedPosts.map((item) => (
+            <BlogCard
+              title={item.data.title}
+              description={item.data.description}
+              publishDate={item.data.publishDate}
+              image={item.data.image}
+              imageAlt={item.data.imageAlt}
+              href={`/blog/${item.slug}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <CTASection
+    title="Chcete podobnou automatizaci i pro váš web?"
+    description="Podíváme se, kde dnes vzniká zbytečná ruční práce, a doporučíme službu nebo jednoduché propojení na míru."
+    primaryHref="/kontakt"
+    primaryLabel="Nezávazně poptat"
+    secondaryHref="/sluzby"
+    secondaryLabel="Zobrazit služby"
+  />
+</Layout>

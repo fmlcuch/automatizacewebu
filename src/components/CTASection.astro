@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  primaryHref: string;
+  primaryLabel: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const { title, description, primaryHref, primaryLabel, secondaryHref, secondaryLabel } = Astro.props;
+---
+
+<section class="section-shell">
+  <div class="container-shell">
+    <div class="overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-600 via-brand to-sky-500 px-8 py-10 text-white shadow-soft md:px-12 md:py-14">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-100">Další krok</p>
+        <h2 class="mt-4 text-3xl font-bold md:text-4xl">{title}</h2>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-50">{description}</p>
+      </div>
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+        <a href={primaryHref} class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand shadow-sm transition hover:bg-slate-100">
+          {primaryLabel}
+        </a>
+        {secondaryHref && secondaryLabel && (
+          <a
+            href={secondaryHref}
+            class="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            {secondaryLabel}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

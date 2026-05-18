@@ -1,0 +1,119 @@
+---
+interface Props {
+  serviceName: string;
+  sourcePage: string;
+}
+
+const { serviceName, sourcePage } = Astro.props;
+---
+
+<section id="objednavka" class="section-shell">
+  <div class="container-shell">
+    <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="max-w-xl">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Objednávka</p>
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl">
+          Objednávka služby přes formulář
+        </h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600">
+          Vyplňte několik základních informací a pošlete nám stručný kontext. Ozveme se s potvrzením
+          objednávky, upřesněním dalšího postupu a případně i s požadavkem na bezpečné předání přístupů.
+        </p>
+        <div class="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Co je dobré uvést</p>
+          <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+            <li>Název nebo adresu webu, kterého se služba týká.</li>
+            <li>Orientační objem obsahu, produktů, obrázků nebo dat.</li>
+            <li>Specifická omezení, termín nebo návaznost na další systém.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-shell p-6 md:p-8">
+        <h3 class="text-2xl font-semibold text-slate-900">{serviceName}</h3>
+        <p class="mt-4 text-base leading-7 text-slate-600">
+          Objednávku odešleme do Make.com webhooku a po úspěšném odeslání vás přesměrujeme na děkovnou stránku.
+        </p>
+
+        <form
+          action="https://hook.eu1.make.com/example"
+          method="POST"
+          class="mt-8 space-y-5"
+          data-async-form
+          data-honeypot="order_company"
+          data-success-redirect="/dekujeme"
+        >
+          <input type="hidden" name="formType" value="service-order" />
+          <input type="hidden" name="service" value={serviceName} />
+          <input type="hidden" name="sourcePage" value={sourcePage} />
+          <input type="hidden" name="redirectUrl" value="https://automatizacewebu.cz/dekujeme" />
+
+          <div class="hidden">
+            <label for="order_company">Společnost</label>
+            <input id="order_company" name="order_company" type="text" autocomplete="off" tabindex="-1" />
+          </div>
+
+          <div>
+            <label for="order_name" class="mb-2 block text-sm font-medium text-slate-700">Jméno</label>
+            <input id="order_name" name="name" type="text" class="field-shell" required autocomplete="name" />
+          </div>
+
+          <div>
+            <label for="order_email" class="mb-2 block text-sm font-medium text-slate-700">E-mail</label>
+            <input
+              id="order_email"
+              name="email"
+              type="email"
+              class="field-shell"
+              required
+              autocomplete="email"
+              inputmode="email"
+            />
+          </div>
+
+          <div>
+            <label for="order_website" class="mb-2 block text-sm font-medium text-slate-700">Web</label>
+            <input
+              id="order_website"
+              name="website"
+              type="url"
+              class="field-shell"
+              placeholder="https://www.vasedomena.cz"
+              autocomplete="url"
+            />
+          </div>
+
+          <div>
+            <label for="order_scope" class="mb-2 block text-sm font-medium text-slate-700">Rozsah nebo objem</label>
+            <input
+              id="order_scope"
+              name="scope"
+              type="text"
+              class="field-shell"
+              required
+              placeholder="Např. 350 produktů, 1 000 obrázků nebo 80 normostran"
+            />
+          </div>
+
+          <div>
+            <label for="order_message" class="mb-2 block text-sm font-medium text-slate-700">Zpráva</label>
+            <textarea
+              id="order_message"
+              name="message"
+              class="field-shell min-h-40"
+              required
+              placeholder="Doplňte prosím důležité souvislosti, termín nebo specifický požadavek."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full" data-loading-label="Odesíláme objednávku...">
+            <span data-button-label>Odeslat objednávku</span>
+          </button>
+          <p data-form-status aria-live="polite" class="text-sm text-slate-500">
+            Po odeslání vám objednávku potvrdíme a navážeme dalším krokem.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

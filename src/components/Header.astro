@@ -1,0 +1,96 @@
+---
+const links = [
+  { href: "/", label: "Domů" },
+  { href: "/sluzby", label: "Služby" },
+  { href: "/blog", label: "Blog" },
+  { href: "/kontakt", label: "Kontakt" }
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl">
+  <div class="container-shell flex h-20 items-center justify-between gap-6">
+    <a href="/" class="flex items-center gap-3 text-sm font-semibold text-slate-900">
+      <span
+        class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-brand text-lg font-bold text-white shadow-soft"
+      >
+        A
+      </span>
+      <span class="flex flex-col">
+        <span>automatizacewebu.cz</span>
+        <span class="text-xs font-medium text-slate-500">Automatizace WordPressu a dat</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Hlavní navigace">
+      {links.map((link) => {
+        const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              "text-sm font-medium transition hover:text-brand",
+              isActive ? "text-brand" : "text-slate-600"
+            ]}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+      <a href="/kontakt" class="btn-primary">
+        Poptat automatizaci
+      </a>
+    </nav>
+
+    <button
+      type="button"
+      class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 text-slate-700 md:hidden"
+      data-mobile-menu-toggle
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      aria-label="Otevřít navigaci"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
+    <nav class="container-shell flex flex-col gap-3 py-5" aria-label="Mobilní navigace">
+      {links.map((link) => {
+        const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              "rounded-2xl px-4 py-3 text-sm font-medium transition hover:bg-slate-50 hover:text-brand",
+              isActive ? "bg-brand-soft text-brand" : "text-slate-700"
+            ]}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+      <a href="/kontakt" class="btn-primary mt-2">
+        Poptat automatizaci
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const toggle = document.querySelector("[data-mobile-menu-toggle]");
+  const menu = document.querySelector("#mobile-menu");
+
+  if (toggle instanceof HTMLButtonElement && menu instanceof HTMLElement) {
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!isExpanded));
+      menu.classList.toggle("hidden");
+    });
+  }
+</script>

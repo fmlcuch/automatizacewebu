@@ -1,0 +1,152 @@
+---
+import CTASection from "../../components/CTASection.astro";
+import Layout from "../../layouts/Layout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import ServiceOrderForm from "../../components/ServiceOrderForm.astro";
+const pageUrl = "/sluzby/ai-analytik";
+
+const faq = [
+  {
+    question: "Je služba závazná na delší období?",
+    answer: "Ne. Cena je 2 000 Kč měsíčně, bez závazků, a předplatné lze kdykoliv zrušit."
+  },
+  {
+    question: "Co potřebujete pro spuštění?",
+    answer: "Stačí jednorázové napojení vašeho webu na náš analytický skript a přístup ke Google Search Console, pokud chcete rozšířený přehled klíčových slov."
+  },
+  {
+    question: "Kdy report dorazí?",
+    answer: "Každé pondělí ráno dostanete e-mail se shrnutím návštěvnosti, vybranými zjištěními a akčním plánem."
+  }
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Pravidelný analytický e-mailový report pro web",
+  name: "AI analytik",
+  description:
+    "Jednorázové napojení webu a pravidelný pondělní report s návštěvností, klíčovými slovy a doporučením dalších kroků.",
+  provider: {
+    "@type": "Organization",
+    name: "automatizacewebu.cz",
+    url: "https://automatizacewebu.cz"
+  },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "CZK",
+    price: "2000",
+    url: `https://automatizacewebu.cz${pageUrl}`
+  }
+};
+---
+
+<Layout
+  title="AI analytik pro weby a e-shopy | automatizacewebu.cz"
+  description="Každé pondělí dostanete srozumitelný report návštěvnosti, klíčových slov a doporučení, co na webu zlepšit."
+  canonical={pageUrl}
+  schema={serviceSchema}
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell grid gap-10 lg:grid-cols-[1fr_360px]">
+      <div class="max-w-3xl">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Služba</p>
+        <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          AI analytik: data z webu přeložená do lidské řeči
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Nechce se vám rozklikávat nepřehledné Google Analytics 4? Odebírejte data v podobě
+          pravidelného e-mailu s jasným vysvětlením a akčním plánem.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#objednavka" class="btn-primary">Objednat službu</a>
+          <a href="/kontakt" class="btn-secondary">Nejdřív se zeptat</a>
+        </div>
+      </div>
+
+      <aside class="card-shell p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Cena</p>
+        <div class="mt-5 space-y-4">
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm text-slate-500">Měsíční předplatné</p>
+            <p class="mt-1 text-2xl font-semibold text-slate-900">2 000 Kč / měsíc</p>
+          </div>
+          <div class="rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-7 text-slate-700">
+            Bez závazků, lze kdykoliv zrušit. Cena zahrnuje provoz i AI kredity.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell grid gap-12 lg:grid-cols-2">
+      <div>
+        <SectionHeading
+          eyebrow="Problém zákazníka"
+          title="Data existují, ale nikdo je nemá čas pravidelně číst a vyhodnocovat."
+          description="GA4 i Search Console umí hodně, ale bez pravidelného překladu do běžné řeči zůstávají data v nástroji a neproměňují se v rozhodnutí."
+        />
+      </div>
+      <div class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co služba řeší</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Napojí váš web na náš analytický skript jednorázovým nastavením.</li>
+          <li>Každé pondělí ráno pošle e-mail se shrnutím návštěvnosti.</li>
+          <li>Doplní nejúspěšnější klíčová slova z Google Search Console.</li>
+          <li>Přidá akční plán, co na webu zlepšit v dalším týdnu.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell bg-surface">
+    <div class="container-shell grid gap-6 lg:grid-cols-2">
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co zákazník dostane</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Jednorázové napojení a zprovoznění sledování.</li>
+          <li>Pravidelný pondělní e-mail v lidské a srozumitelné podobě.</li>
+          <li>Přehled návštěvnosti, klíčových slov a slabých míst webu.</li>
+          <li>Doporučení kroků, které mají smysl řešit hned.</li>
+        </ul>
+      </article>
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Trust prvky</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Bez závazků a s možností rychlého zrušení.</li>
+          <li>Transparentní měsíční cena bez skrytých doplatků.</li>
+          <li>Rychlé zprovoznění po dodání přístupů.</li>
+          <li>Služba je vhodná i pro menší firmy bez interního analytika.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <ServiceOrderForm serviceName="AI analytik" sourcePage={pageUrl} />
+
+  <section class="section-shell">
+    <div class="container-shell">
+      <SectionHeading eyebrow="FAQ" title="Časté otázky" />
+      <div class="mt-10 space-y-4">
+        {faq.map((item) => (
+          <details class="card-shell p-6">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-base leading-7 text-slate-600">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Chcete report, kterému rozumí i neanalytický tým?"
+    description="Služba je navržená pro majitele firem, marketing i provozní tým, kteří chtějí jasný přehled a konkrétní doporučení."
+    primaryHref="#objednavka"
+    primaryLabel="Objednat službu"
+    secondaryHref="/kontakt"
+    secondaryLabel="Položit dotaz"
+  />
+</Layout>

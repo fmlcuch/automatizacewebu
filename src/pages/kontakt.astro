@@ -1,0 +1,151 @@
+---
+import CTASection from "../components/CTASection.astro";
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  "Oprava diakritiky",
+  "SEO metadata",
+  "ALT texty",
+  "AI analytik",
+  "Propojení systémů",
+  "Nejsem si jistý"
+];
+---
+
+<Layout
+  title="Kontakt a poptávka | automatizacewebu.cz"
+  description="Napište nám, co potřebujete automatizovat. Odpovíme s doporučením služby, orientačním postupem a dalším krokem."
+  canonical="/kontakt"
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="max-w-xl">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Kontakt</p>
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          Řekněte nám, co chcete zautomatizovat.
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Popište problém, objem dat nebo konkrétní typ webu. Pokud bude dávat smysl některá z
+          hotových služeb, navrhneme rovnou nejrychlejší cestu.
+        </p>
+
+        <div class="mt-8 space-y-5 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">E-mail</p>
+            <a
+              href="mailto:hello@automatizacewebu.cz"
+              class="mt-2 inline-flex text-lg font-semibold text-brand transition hover:text-brand-dark"
+            >
+              hello@automatizacewebu.cz
+            </a>
+          </div>
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Fakturační údaje</p>
+            <div class="mt-2 space-y-1 text-sm leading-7 text-slate-600">
+              <p>automatizacewebu.cz s.r.o.</p>
+              <p>IČO: 12345678</p>
+              <p>DIČ: CZ12345678</p>
+              <p>Praha, Česká republika</p>
+            </div>
+          </div>
+          <p class="rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-slate-600">
+            U většiny poptávek stačí jedna krátká zpráva. Nepotřebujeme dlouhý brief. Stačí problém,
+            objem a cílový výsledek.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-shell p-6 md:p-8">
+        <h2 class="text-3xl font-bold text-slate-900">Nezávazná poptávka</h2>
+        <p class="mt-4 text-base leading-7 text-slate-600">
+          Formulář odešleme do Make.com webhooku a po úspěšném odeslání vás přesměrujeme na děkovnou stránku.
+        </p>
+
+        <form
+          action="https://hook.eu1.make.com/example"
+          method="POST"
+          class="mt-8 space-y-5"
+          data-async-form
+          data-honeypot="company"
+          data-success-redirect="/dekujeme"
+        >
+          <input type="hidden" name="formType" value="contact" />
+          <input type="hidden" name="sourcePage" value="/kontakt" />
+          <input type="hidden" name="redirectUrl" value="https://automatizacewebu.cz/dekujeme" />
+
+          <div class="hidden">
+            <label for="company">Společnost</label>
+            <input id="company" name="company" type="text" autocomplete="off" tabindex="-1" />
+          </div>
+
+          <div>
+            <label for="name" class="mb-2 block text-sm font-medium text-slate-700">Jméno</label>
+            <input id="name" name="name" type="text" class="field-shell" required autocomplete="name" />
+          </div>
+
+          <div>
+            <label for="email" class="mb-2 block text-sm font-medium text-slate-700">E-mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              class="field-shell"
+              required
+              autocomplete="email"
+              inputmode="email"
+            />
+          </div>
+
+          <div>
+            <label for="website" class="mb-2 block text-sm font-medium text-slate-700">Web</label>
+            <input
+              id="website"
+              name="website"
+              type="url"
+              class="field-shell"
+              placeholder="https://www.vasedomena.cz"
+              autocomplete="url"
+            />
+          </div>
+
+          <div>
+            <label for="service" class="mb-2 block text-sm font-medium text-slate-700">Výběr služby</label>
+            <select id="service" name="service" class="field-shell" required>
+              <option value="">Vyberte službu</option>
+              {services.map((service) => (
+                <option value={service}>{service}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="mb-2 block text-sm font-medium text-slate-700">Zpráva</label>
+            <textarea
+              id="message"
+              name="message"
+              class="field-shell min-h-40"
+              required
+              placeholder="Popište stručně problém, objem obsahu nebo konkrétní cíl."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full" data-loading-label="Odesíláme poptávku...">
+            <span data-button-label>Odeslat poptávku</span>
+          </button>
+          <p data-form-status aria-live="polite" class="text-sm text-slate-500">
+            Ozveme se co nejdříve s doporučením dalšího kroku.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Preferujete konkrétní službu s jasnou cenou?"
+    description="Podívejte se na připravené landing pages a odešlete objednávku služby rovnou přes formulář."
+    primaryHref="/sluzby"
+    primaryLabel="Zobrazit služby"
+    secondaryHref="/blog"
+    secondaryLabel="Přečíst blog"
+  />
+</Layout>

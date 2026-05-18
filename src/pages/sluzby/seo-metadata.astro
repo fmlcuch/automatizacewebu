@@ -1,0 +1,157 @@
+---
+import CTASection from "../../components/CTASection.astro";
+import Layout from "../../layouts/Layout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import ServiceOrderForm from "../../components/ServiceOrderForm.astro";
+const pageUrl = "/sluzby/seo-metadata";
+
+const faq = [
+  {
+    question: "Do kterých pluginů metadata zapisujete?",
+    answer: "Standardně pracujeme s Yoast SEO, Rank Math a All in One SEO. Pokud používáte jiný plugin, prověříme kompatibilitu předem."
+  },
+  {
+    question: "Musím dodat klíčová slova?",
+    answer: "Nemusíte. Služba zahrnuje analýzu obsahu každé stránky nebo produktu a vytažení 3 až 5 relevantních klíčových slov."
+  },
+  {
+    question: "Pro koho je služba vhodná?",
+    answer: "Typicky pro firemní weby a e-shopy, které mají větší množství stránek nebo produktů a nechtějí metadata dopisovat ručně."
+  }
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Hromadná tvorba SEO metadat ve WordPressu",
+  name: "SEO metadata",
+  description:
+    "Analýza obsahu, vytažení klíčových slov a vygenerování meta description pro stránky nebo produkty včetně zápisu do SEO pluginu.",
+  provider: {
+    "@type": "Organization",
+    name: "automatizacewebu.cz",
+    url: "https://automatizacewebu.cz"
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "CZK",
+    lowPrice: "2000",
+    url: `https://automatizacewebu.cz${pageUrl}`
+  }
+};
+---
+
+<Layout
+  title="SEO metadata pro WordPress a e-shop | automatizacewebu.cz"
+  description="Vytvoříme meta popisky a klíčové štítky pro stránky nebo produkty a automaticky je propíšeme do vašeho SEO pluginu."
+  canonical={pageUrl}
+  schema={serviceSchema}
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell grid gap-10 lg:grid-cols-[1fr_360px]">
+      <div class="max-w-3xl">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Služba</p>
+        <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          SEO metadata pro stránky a produkty bez ručního přepisování
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Zvyšte proklikovost z vyhledávačů bez hodin nudné práce. AI si přečte váš obsah a vytvoří
+          popisky, které lákají ke kliknutí.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#objednavka" class="btn-primary">Objednat službu</a>
+          <a href="/kontakt" class="btn-secondary">Nejdřív se zeptat</a>
+        </div>
+      </div>
+
+      <aside class="card-shell p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Cena</p>
+        <div class="mt-5 space-y-4">
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm text-slate-500">Jednotková cena</p>
+            <p class="mt-1 text-2xl font-semibold text-slate-900">6 Kč / produkt nebo stránka</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm text-slate-500">Příklad</p>
+            <p class="mt-1 text-lg font-semibold text-slate-900">400 produktů = 2 400 Kč</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Kompletně na klíč včetně licencí a AI kreditů.</p>
+          </div>
+          <div class="rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-7 text-slate-700">
+            Minimální hodnota objednávky: <strong>2 000 Kč</strong>.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell grid gap-12 lg:grid-cols-2">
+      <div>
+        <SectionHeading
+          eyebrow="Problém zákazníka"
+          title="Obsah na webu existuje, ale ve výsledcích vyhledávání nepůsobí přesvědčivě."
+          description="Ruční psaní meta popisků je pomalé a u větších katalogů prakticky nereálné. Výsledkem bývají prázdná pole, duplicitní texty nebo nečitelný automatický úryvek."
+        />
+      </div>
+      <div class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co služba řeší</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Analyzuje obsah každé vybrané stránky nebo produktu.</li>
+          <li>Vytáhne 3 až 5 relevantních klíčových slov nebo štítků.</li>
+          <li>Vygeneruje meta description v odpovídající délce a tónu.</li>
+          <li>Zapíše výstupy přímo do Yoastu, Rank Math nebo AIOSEO.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell bg-surface">
+    <div class="container-shell grid gap-6 lg:grid-cols-2">
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co zákazník dostane</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Hromadné zpracování vybraných URL nebo produktů.</li>
+          <li>Meta popisky připravené na vyšší proklikovost z výsledků vyhledávání.</li>
+          <li>Klíčová slova a štítky vytažené z obsahu bez ručního hodnocení každé stránky.</li>
+          <li>Přímý zápis do WordPress SEO pluginu bez další administrativy.</li>
+        </ul>
+      </article>
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Trust prvky</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Transparentní cena po kusech, bez hodinových sazeb.</li>
+          <li>Bez závazků a bez dalších měsíčních licencí.</li>
+          <li>Rychlé dodání i u větších katalogů.</li>
+          <li>Jasně vymezený výstup a minimální hodnota objednávky.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <ServiceOrderForm serviceName="SEO metadata" sourcePage={pageUrl} />
+
+  <section class="section-shell">
+    <div class="container-shell">
+      <SectionHeading eyebrow="FAQ" title="Časté otázky" />
+      <div class="mt-10 space-y-4">
+        {faq.map((item) => (
+          <details class="card-shell p-6">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-base leading-7 text-slate-600">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Máte stovky produktů a nechcete metadata řešit ručně?"
+    description="Službu umíme nasadit i na větší katalogy, pokud je struktura obsahu v pořádku a data jsou ve WordPressu dostupná."
+    primaryHref="#objednavka"
+    primaryLabel="Objednat službu"
+    secondaryHref="/kontakt"
+    secondaryLabel="Položit dotaz"
+  />
+</Layout>

@@ -1,0 +1,161 @@
+---
+import CTASection from "../../components/CTASection.astro";
+import Layout from "../../layouts/Layout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import ServiceOrderForm from "../../components/ServiceOrderForm.astro";
+const pageUrl = "/sluzby/oprava-diakritiky";
+
+const faq = [
+  {
+    question: "Co přesně je normostrana?",
+    answer: "Normostrana je 1 800 znaků včetně mezer. Díky tomu je rozsah služby měřitelný i u kombinace článků, stránek a produktových textů."
+  },
+  {
+    question: "Opravujete jen diakritiku?",
+    answer: "Ne. Součástí je i oprava překlepů, základního slovosledu a sjednocení stylu komunikace, aby web působil konzistentně."
+  },
+  {
+    question: "Jak probíhá předání podkladů?",
+    answer: "Po odeslání objednávky vám potvrdíme další postup. Pokud je to vhodné, pošlete nám přístupy přes zabezpečený formulář nebo se domluvíme na exportu databáze či XML."
+  }
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Oprava diakritiky a jazykové sjednocení obsahu ve WordPressu",
+  name: "Oprava diakritiky",
+  description:
+    "Kompletní analýza textů, oprava diakritiky, překlepů, slovosledu a sjednocení stylu napříč WordPress obsahem.",
+  provider: {
+    "@type": "Organization",
+    name: "automatizacewebu.cz",
+    url: "https://automatizacewebu.cz"
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "CZK",
+    lowPrice: "4900",
+    url: `https://automatizacewebu.cz${pageUrl}`
+  }
+};
+---
+
+<Layout
+  title="Oprava diakritiky ve WordPressu | automatizacewebu.cz"
+  description="AI projde celý váš WordPress obsah, opraví diakritiku, překlepy i styl komunikace a vrátí web do reprezentativního stavu."
+  canonical={pageUrl}
+  schema={serviceSchema}
+>
+  <section class="section-shell bg-hero-grid">
+    <div class="container-shell grid gap-10 lg:grid-cols-[1fr_360px]">
+      <div class="max-w-3xl">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand">Služba</p>
+        <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          Oprava diakritiky a sjednocení textů ve WordPressu
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Máte web po starém importu, zmateném překladu nebo textech od různých autorů? Naše AI
+          projde celou databázi WordPressu a dá texty do perfektního stavu.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#objednavka" class="btn-primary">Objednat službu</a>
+          <a href="/kontakt" class="btn-secondary">Nejdřív se zeptat</a>
+        </div>
+      </div>
+
+      <aside class="card-shell p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Cenový model</p>
+        <div class="mt-5 space-y-4">
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm text-slate-500">Do 50 NS</p>
+            <p class="mt-1 text-2xl font-semibold text-slate-900">4 900 Kč</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Fixní startovací balíček včetně licencí a AI kreditů.</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm text-slate-500">Nad 50 NS</p>
+            <p class="mt-1 text-2xl font-semibold text-slate-900">70 Kč / normostrana</p>
+          </div>
+          <div class="rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-7 text-slate-700">
+            Minimální hodnota objednávky: <strong>4 900 Kč</strong>.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container-shell grid gap-12 lg:grid-cols-2">
+      <div>
+        <SectionHeading
+          eyebrow="Problém zákazníka"
+          title="Web působí neprofesionálně, i když obsahově dává smysl."
+          description="Chybějící diakritika, rozdílný styl psaní a drobné jazykové chyby snižují důvěryhodnost webu a berou čas každému, kdo to má ručně čistit."
+        />
+      </div>
+      <div class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co služba řeší</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Opraví chybějící diakritiku ve starších importech i ručně vkládaném obsahu.</li>
+          <li>Vyčistí překlepy a základní stylistické nedostatky.</li>
+          <li>Sjednotí tón komunikace, aby web nepřeskakoval mezi tykáním a vykáním.</li>
+          <li>Vrátí obsah do stavu, který můžete bez ostudy dál rozvíjet.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell bg-surface">
+    <div class="container-shell grid gap-6 lg:grid-cols-2">
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Co zákazník dostane</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Kompletní analýzu textů napříč články, stránkami nebo produkty.</li>
+          <li>Opravu diakritiky, překlepů a základních jazykových chyb.</li>
+          <li>Úpravu slovosledu tam, kde text působí nepřirozeně nebo strojově.</li>
+          <li>Sjednocení stylu komunikace v rámci celého webu.</li>
+        </ul>
+      </article>
+      <article class="card-shell p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Trust prvky</h2>
+        <ul class="mt-5 space-y-4 text-base leading-7 text-slate-600">
+          <li>Bez závazků a bez průběžných licenčních poplatků.</li>
+          <li>Transparentní cena podle počtu normostran.</li>
+          <li>AI kredity i potřebné licence jsou započítané v ceně.</li>
+          <li>Rychlé dodání po převzetí přístupů a rozsahu prací.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <ServiceOrderForm serviceName="Oprava diakritiky" sourcePage={pageUrl} />
+
+  <section class="section-shell">
+    <div class="container-shell">
+      <SectionHeading
+        eyebrow="FAQ"
+        title="Časté otázky"
+        description="Před objednávkou je dobré vědět, jak se služba počítá a jak probíhá předání dat."
+      />
+      <div class="mt-10 space-y-4">
+        {faq.map((item) => (
+          <details class="card-shell p-6">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-900">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-base leading-7 text-slate-600">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Potřebujete nejdřív odhadnout rozsah textů?"
+    description="Pošlete nám ukázku nebo orientační objem a doporučíme, jak službu uchopit co nejefektivněji."
+    primaryHref="#objednavka"
+    primaryLabel="Objednat službu"
+    secondaryHref="/kontakt"
+    secondaryLabel="Položit dotaz"
+  />
+</Layout>
