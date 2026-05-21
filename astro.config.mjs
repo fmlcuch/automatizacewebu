@@ -5,7 +5,7 @@ export default defineConfig({
   site: "https://automatizacewebu.cz",
   base: "/",
   output: "static",
-  trailingSlash: "never",
+  trailingSlash: "always",
   integrations: [
     tailwind({
       applyBaseStyles: false

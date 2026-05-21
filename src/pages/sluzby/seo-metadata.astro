@@ -3,7 +3,7 @@ import CTASection from "../../components/CTASection.astro";
 import Layout from "../../layouts/Layout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import ServiceOrderForm from "../../components/ServiceOrderForm.astro";
-const pageUrl = "/sluzby/seo-metadata";
+const pageUrl = "/sluzby/seo-metadata/";
 
 const faq = [
   {
@@ -44,7 +44,7 @@ const serviceSchema = {
 <Layout
   title="SEO metadata pro WordPress a e-shop | automatizacewebu.cz"
   description="Vytvoříme meta popisky a klíčové štítky pro stránky nebo produkty a automaticky je propíšeme do vašeho SEO pluginu."
-  canonical={pageUrl}
+  canonical={`${pageUrl}/`}
   schema={serviceSchema}
 >
   <section class="section-shell bg-hero-grid">
@@ -60,7 +60,7 @@ const serviceSchema = {
         </p>
         <div class="mt-8 flex flex-col gap-4 sm:flex-row">
           <a href="#objednavka" class="btn-primary">Objednat službu</a>
-          <a href="/kontakt" class="btn-secondary">Nejdřív se zeptat</a>
+          <a href="/kontakt/" class="btn-secondary">Nejdřív se zeptat</a>
         </div>
       </div>
 
@@ -151,7 +151,7 @@ const serviceSchema = {
     description="Službu umíme nasadit i na ty největší e-shopy. Pošlete nám nezávaznou poptávku a obratem vám naceníme řešení."
     primaryHref="#objednavka"
     primaryLabel="Objednat službu"
-    secondaryHref="/kontakt"
+    secondaryHref="/kontakt/"
     secondaryLabel="Položit dotaz"
   />
 </Layout>

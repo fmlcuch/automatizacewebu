@@ -33,8 +33,8 @@ const visibleRelatedPosts = relatedPosts.length > 0 ? relatedPosts : fallbackPos
 
 const breadcrumbs = [
   { href: "/", label: "Domů" },
-  { href: "/blog", label: "Blog" },
-  { href: `/blog/${post.slug}`, label: post.data.title }
+  { href: "/blog/", label: "Blog" },
+  { href: `/blog/${post.slug}/`, label: post.data.title }
 ];
 
 const articleSchema = {
@@ -48,7 +48,7 @@ const articleSchema = {
     name: post.data.author
   },
   image: [`https://automatizacewebu.cz${post.data.image}`],
-  mainEntityOfPage: `https://automatizacewebu.cz/blog/${post.slug}`,
+  mainEntityOfPage: `https://automatizacewebu.cz/blog/${post.slug}/`,
   publisher: {
     "@type": "Organization",
     name: "automatizacewebu.cz",
@@ -69,7 +69,7 @@ const formattedDate = post.data.publishDate.toLocaleDateString("cs-CZ", {
 <Layout
   title={`${post.data.title} | Blog | automatizacewebu.cz`}
   description={post.data.description}
-  canonical={`/blog/${post.slug}`}
+  canonical={`/blog/${post.slug}/`}
   image={post.data.image}
   type="article"
   schema={articleSchema}
@@ -146,7 +146,7 @@ const formattedDate = post.data.publishDate.toLocaleDateString("cs-CZ", {
             <p class="mt-4 text-base leading-7 text-slate-600">
               Napište nám, kde vás dnes zdržuje ruční práce. Navrhneme nejkratší cestu k nasazení.
             </p>
-            <a href="/kontakt" class="btn-primary mt-6">
+            <a href="/kontakt/" class="btn-primary mt-6">
               Poptat automatizaci
             </a>
           </div>
@@ -161,7 +161,7 @@ const formattedDate = post.data.publishDate.toLocaleDateString("cs-CZ", {
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Související články</p>
             <h2 class="mt-4 text-3xl font-bold text-slate-900">Pokračujte dalším praktickým textem.</h2>
           </div>
-          <a href="/blog" class="btn-secondary">Všechny články</a>
+          <a href="/blog/" class="btn-secondary">Všechny články</a>
         </div>
 
         <div class="mt-10 grid gap-6 lg:grid-cols-2">
@@ -172,7 +172,7 @@ const formattedDate = post.data.publishDate.toLocaleDateString("cs-CZ", {
               publishDate={item.data.publishDate}
               image={item.data.image}
               imageAlt={item.data.imageAlt}
-              href={`/blog/${item.slug}`}
+              href={`/blog/${item.slug}/`}
             />
           ))}
         </div>
@@ -185,7 +185,7 @@ const formattedDate = post.data.publishDate.toLocaleDateString("cs-CZ", {
     description="Podíváme se, kde dnes vzniká zbytečná ruční práce, a doporučíme službu nebo jednoduché propojení na míru."
     primaryHref="/kontakt"
     primaryLabel="Nezávazně poptat"
-    secondaryHref="/sluzby"
+    secondaryHref="/sluzby/"
     secondaryLabel="Zobrazit služby"
   />
 </Layout>

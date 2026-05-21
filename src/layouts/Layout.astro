@@ -26,7 +26,16 @@ const {
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL(siteConfig.siteUrl);
-const canonicalUrl = canonical ? new URL(canonical, siteUrl).toString() : Astro.url.toString();
+const canonicalPath = canonical
+  ? canonical === "/"
+    ? "/"
+    : canonical.endsWith("/")
+      ? canonical
+      : `${canonical}/`
+  : Astro.url.pathname === "/"
+    ? "/"
+    : `${Astro.url.pathname.replace(/\/?$/, "/")}`;
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 const ogImage = new URL(image, siteUrl).toString();
 const schemaList = Array.isArray(schema) ? schema : [schema];
 
@@ -105,7 +114,7 @@ const localBusinessSchema = {
 
     <div class="fixed inset-x-0 bottom-4 z-40 px-4 sm:hidden">
       <a
-        href="/kontakt"
+        href="/kontakt/"
         class="btn-primary mx-auto flex max-w-sm justify-center gap-2 shadow-lg shadow-blue-200/60"
       >
         Nezávazně poptat

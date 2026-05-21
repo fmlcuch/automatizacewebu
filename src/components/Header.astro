@@ -1,9 +1,9 @@
 ---
 const links = [
   { href: "/", label: "Domů" },
-  { href: "/sluzby", label: "Služby" },
-  { href: "/blog", label: "Blog" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/sluzby/", label: "Služby" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/kontakt/", label: "Kontakt" },
 ];
 
 const pathname = Astro.url.pathname;
@@ -39,7 +39,7 @@ const pathname = Astro.url.pathname;
           </a>
         );
       })}
-      <a href="/kontakt" class="btn-primary">
+      <a href="/kontakt/" class="btn-primary">
         Poptat automatizaci
       </a>
     </nav>
@@ -75,7 +75,7 @@ const pathname = Astro.url.pathname;
           </a>
         );
       })}
-      <a href="/kontakt" class="btn-primary mt-2">
+      <a href="/kontakt/" class="btn-primary mt-2">
         Poptat automatizaci
       </a>
     </nav>

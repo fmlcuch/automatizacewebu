@@ -7,17 +7,17 @@ export async function GET() {
 
   const staticPages = [
     "",
-    "/kontakt",
-    "/ochrana-osobnich-udaju",
-    "/blog",
-    "/sluzby",
-    "/obchodni-podminky",
-    "/sluzby/oprava-diakritiky",
-    "/sluzby/seo-metadata",
-    "/sluzby/alt-texty",
-    "/sluzby/ai-analytik",
-    "/sluzby/propojeni-systemu",
-    "/sluzby/ai-prolinkovani"
+    "/kontakt/",
+    "/ochrana-osobnich-udaju/",
+    "/blog/",
+    "/sluzby/",
+    "/obchodni-podminky/",
+    "/sluzby/oprava-diakritiky/",
+    "/sluzby/seo-metadata/",
+    "/sluzby/alt-texty/",
+    "/sluzby/ai-analytik/",
+    "/sluzby/propojeni-systemu/",
+    "/sluzby/ai-prolinkovani/"
   ];
 
   const urls = [
@@ -26,7 +26,7 @@ export async function GET() {
       lastmod: new Date().toISOString()
     })),
     ...posts.map((post) => ({
-      loc: `${site}/blog/${post.slug}`,
+      loc: `${site}/blog/${post.slug}/`,
       lastmod: post.data.publishDate.toISOString()
     }))
   ];

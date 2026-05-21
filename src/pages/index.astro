@@ -193,7 +193,7 @@ const schemas = [
           title="Praktické tipy pro automatizaci a efektivní správu webu."
           description="Žádná teoretická omáčka. Pouze konkrétní návody a postupy, jak odstranit ruční práci a zlepšit kvalitu dat i obsahu."
         />
-        <a href="/blog" class="btn-secondary">
+        <a href="/blog/" class="btn-secondary">
           Zobrazit všechny články
         </a>
       </div>
@@ -206,7 +206,7 @@ const schemas = [
             publishDate={post.data.publishDate}
             image={post.data.image}
             imageAlt={post.data.imageAlt}
-            href={`/blog/${post.slug}`}
+          href={`/blog/${post.slug}/`}
           />
         ))}
       </div>
@@ -218,7 +218,7 @@ const schemas = [
     description="Popište nám ho stručně vlastními slovy. Obratem posoudíme, zda je vhodný pro automatizaci, a navrhneme vám nejrychlejší cestu k trvalé úspoře času."
     primaryHref="/kontakt"
     primaryLabel="Nezávazně poptat"
-    secondaryHref="/sluzby"
+    secondaryHref="/sluzby/"
     secondaryLabel="Prohlédnout všechny služby"
   />
 </Layout>
